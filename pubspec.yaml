@@ -1,0 +1,50 @@
+name: dero_control_interface
+
+description: Interface to interact with DERO network (derod and wallet) via RPC
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  json_rpc_2: ^3.0.1
+  web_socket_channel: ^2.1.0
+  flutter_form_builder: ^7.1.1
+  form_builder_validators: ^8.1.1
+  google_fonts: ^3.0.1
+  flutter_riverpod: ^1.0.4
+  intl: ^0.17.0
+  url_launcher: ^6.0.20
+  font_awesome_flutter: ^10.1.0
+  go_router: ^4.1.0
+  path_provider: ^2.0.9
+  json_serializable: ^6.2.0
+  freezed: ^2.0.3
+  freezed_annotation: ^2.0.3
+  uuid: ^3.0.6
+  smooth_page_indicator: ^1.0.0+2
+  flutter_zoom_drawer: ^3.0.2
+  data_table_2: ^2.2.3
+  qr_flutter: ^4.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.1
+  build_runner: ^2.1.10
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/DERO_Foundation_Logo.png
+    - assets/DERO_Logo_Alt-Horizontal_FullColor.png
+    - assets/Dero_Logo_Alt-Horizontal_FullColor_OnBlack.jpg
