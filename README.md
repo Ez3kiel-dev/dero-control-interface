@@ -40,9 +40,9 @@ flutter run --release -d linux
 * Start derod in your terminal, it can take a lot of time if it's your first time and you don't have a copy of the blockchain (use `--fastsync` option to obtain a prune version of the blockchain).
 * Open the cli wallet in another tab `.\dero-wallet-cli-windows-amd64.exe --rpc-server --rpc-login=username:password` (example with Windows here).
 
-    `--rpc-server` wallet option is mandatory, to allow the Dero Control Interface to communicate with your wallet.
+    `--rpc-server` wallet argument is mandatory, to allow the Dero Control Interface to communicate with your wallet.
 
-    `--rpc-login` wallet option is optional but strongly recommended for security purposes.
+    `--rpc-login` wallet argument is optional but strongly recommended for security purposes.
 * Run the Dero Control Interface App.
   
     Default RPC address are `127.0.0.1:10102` for derod and `127.0.0.1:10103` for wallet cli if both are run locally.
@@ -51,9 +51,9 @@ flutter run --release -d linux
 
 ## Features
 
-* Monitor the Dero network by getting information from derod (general, mining, explorer)
-* Control your wallet remotely (transfer with secret message, integrated address, history, Dero NameService SC)
-* Search a block, tx, smart contract or a named address
+* Monitor the Dero network by getting information from derod (network state, mining, explorer).
+* Control your wallet remotely (transfer with secret message, integrated address, history, Dero NameService SC).
+* Search a block, tx, smart contract or a named address.
 
 
 ## Donations
