@@ -83,94 +83,96 @@ class _BlocksState extends ConsumerState<Blocks>
           Expanded(
             child: Material(
               type: MaterialType.transparency,
-              child: AnimatedList(
-                  key: _key,
-                  initialItemCount: _blocks.length,
-                  itemBuilder: (context, index, animation) {
-                    return SizeTransition(
-                      key: UniqueKey(),
-                      sizeFactor: animation,
-                      child: InkWell(
-                        onTap: () async {
-                          await _showBlockDetails(context, _blocks[index].hash);
-                        },
-                        hoverColor: AppColors.green,
-                        customBorder: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4)),
-                        child: Card(
-                          elevation: 0,
-                          child: ListTile(
-                            title: Row(
-                              children: [
-                                Expanded(child: Builder(builder: (context) {
-                                  var height = _blocks[index].height;
-                                  return SelectableText(
-                                    height.toString(),
-                                    textAlign: TextAlign.center,
-                                  );
-                                })),
-                                Expanded(
-                                    flex: 8,
-                                    child: Builder(builder: (context) {
-                                      var hash = _blocks[index].hash;
-                                      return SelectableText(
-                                        hash.toString(),
-                                        textAlign: TextAlign.center,
-                                        style: _blocks[index].topoheight !=
-                                                _blocks[index].height
-                                            ? const TextStyle(
-                                                decoration:
-                                                    TextDecoration.lineThrough)
-                                            : null,
-                                      );
-                                    })),
-                                Expanded(
-                                    flex: 2,
-                                    child: Builder(builder: (context) {
-                                      var difficulty =
-                                          _blocks[index].difficulty;
-                                      return Text(
-                                        difficulty.toString(),
-                                        textAlign: TextAlign.center,
-                                      );
-                                    })),
-                                Expanded(child: Builder(builder: (context) {
-                                  var txCount = _blocks[index].txcount;
-                                  return Text(
-                                    txCount.toString(),
-                                    textAlign: TextAlign.center,
-                                  );
-                                })),
-                                Expanded(child: Builder(builder: (context) {
-                                  var reward = _blocks[index].reward;
-                                  reward = reward / 100000;
-                                  return Text(
-                                    reward.toString(),
-                                    textAlign: TextAlign.center,
-                                  );
-                                })),
-                                Expanded(
-                                    flex: 2,
-                                    child: Builder(builder: (context) {
-                                      var dt =
-                                          DateTime.fromMillisecondsSinceEpoch(
-                                              _blocks[index].timestamp);
-                                      // var fdt= DateFormat.yMd().add_Hms().format(dt);
-                                      var fdt = DateFormat('dd/MM/yy\nHH:mm:ss')
-                                          .format(dt);
-                                      return Text(
-                                        fdt.toString(),
-                                        textAlign: TextAlign.center,
-                                      );
-                                    })),
-                              ],
+              child: SelectionArea(
+                child: AnimatedList(
+                    key: _key,
+                    initialItemCount: _blocks.length,
+                    itemBuilder: (context, index, animation) {
+                      return SizeTransition(
+                        key: UniqueKey(),
+                        sizeFactor: animation,
+                        child: InkWell(
+                          onTap: () async {
+                            await _showBlockDetails(context, _blocks[index].hash);
+                          },
+                          hoverColor: AppColors.green,
+                          customBorder: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4)),
+                          child: Card(
+                            child: ListTile(
+                              title: Row(
+                                children: [
+                                  Expanded(child: Builder(builder: (context) {
+                                    var height = _blocks[index].height;
+                                    return Text(
+                                      height.toString(),
+                                      textAlign: TextAlign.center,
+                                    );
+                                  })),
+                                  Expanded(
+                                      flex: 8,
+                                      child: Builder(builder: (context) {
+                                        var hash = _blocks[index].hash;
+                                        return Text(
+                                          hash.toString(),
+                                          textAlign: TextAlign.center,
+                                          style: _blocks[index].topoheight !=
+                                                  _blocks[index].height
+                                              ? const TextStyle(
+                                                  decoration: TextDecoration
+                                                      .lineThrough)
+                                              : null,
+                                        );
+                                      })),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Builder(builder: (context) {
+                                        var difficulty =
+                                            _blocks[index].difficulty;
+                                        return Text(
+                                          difficulty.toString(),
+                                          textAlign: TextAlign.center,
+                                        );
+                                      })),
+                                  Expanded(child: Builder(builder: (context) {
+                                    var txCount = _blocks[index].txcount;
+                                    return Text(
+                                      txCount.toString(),
+                                      textAlign: TextAlign.center,
+                                    );
+                                  })),
+                                  Expanded(child: Builder(builder: (context) {
+                                    var reward = _blocks[index].reward;
+                                    reward = reward / 100000;
+                                    return Text(
+                                      reward.toString(),
+                                      textAlign: TextAlign.center,
+                                    );
+                                  })),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Builder(builder: (context) {
+                                        var dt =
+                                            DateTime.fromMillisecondsSinceEpoch(
+                                                _blocks[index].timestamp);
+                                        // var fdt= DateFormat.yMd().add_Hms().format(dt);
+                                        var fdt =
+                                            DateFormat('dd/MM/yy\nHH:mm:ss')
+                                                .format(dt);
+                                        return Text(
+                                          fdt.toString(),
+                                          textAlign: TextAlign.center,
+                                        );
+                                      })),
+                                ],
+                              ),
+                              dense: true,
                             ),
-                            dense: true,
                           ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+              ),
             ),
           ),
         ],

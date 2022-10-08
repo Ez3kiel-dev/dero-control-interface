@@ -61,27 +61,19 @@ class ConnectionPage extends StatelessWidget {
                     var walletConnectionError =
                         ref.watch(walletConnectionErrorProvider);
 
-                    if (derodConnectionError && walletConnectionError) {
+                    if (derodConnectionError) {
+                      return const Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child:
+                        Text('The connection with derod has failed ...'),
+                      );
+                    }
+                    if (walletConnectionError) {
                       return const Padding(
                         padding: EdgeInsets.all(16.0),
                         child: Text(
-                            'The connection with derod AND the wallet has failed ...'),
+                            'The connection with the wallet has failed ...'),
                       );
-                    } else {
-                      if (derodConnectionError) {
-                        return const Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child:
-                              Text('The connection with derod has failed ...'),
-                        );
-                      }
-                      if (walletConnectionError) {
-                        return const Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Text(
-                              'The connection with the wallet has failed ...'),
-                        );
-                      }
                     }
                     return const Padding(
                       padding: EdgeInsets.all(8.0),

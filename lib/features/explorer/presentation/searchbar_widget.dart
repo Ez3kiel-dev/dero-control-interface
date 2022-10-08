@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dero_control_interface/features/explorer/application/search_service.dart';
 import 'package:dero_control_interface/features/explorer/domain/account.dart';
 import 'package:dero_control_interface/features/explorer/domain/block.dart';
@@ -30,12 +32,12 @@ class _SearchBarState extends ConsumerState<SearchBar> {
   double _searchBarWidth = 0;
 
   Future<void> _parseInput(String input) async {
-    await showDialog(
+    unawaited(showDialog(
         barrierDismissible: false,
         context: context,
         builder: (_) {
           return kProgressDialog;
-        });
+        }));
 
     var result = await ref.watch(searchProvider(input).future);
 

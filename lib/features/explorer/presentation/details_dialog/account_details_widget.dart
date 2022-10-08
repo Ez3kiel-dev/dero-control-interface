@@ -23,46 +23,53 @@ class AccountDetails extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            title: Row(
+            title: Column(
               children: [
-                Expanded(
-                    flex: 2,
-                    child: Column(
-                      children: [
-                        const Padding(
+                Row(
+                  children: const [
+                    Expanded(
+                        flex: 2,
+                        child: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Name',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: AppColors.green),
                           ),
-                        ),
-                        SelectableText(
-                          account.name,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: AppColors.text),
-                        )
-                      ],
-                    )),
-                Expanded(
-                    flex: 7,
-                    child: Column(
-                      children: [
-                        const Padding(
+                        )),
+                    Expanded(
+                        flex: 7,
+                        child: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Address',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: AppColors.green),
                           ),
-                        ),
-                        SelectableText(
-                          account.address,
+                        )),
+                  ],
+                ),
+                SelectionArea(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          account.name,
                           textAlign: TextAlign.center,
                           style: const TextStyle(color: AppColors.text),
-                        )
-                      ],
-                    )),
+                        ),
+                      ),
+                      Expanded(
+                          flex: 7,
+                          child: Text(
+                            account.address,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: AppColors.text),
+                          ))
+                    ],
+                  ),
+                )
               ],
             ),
           ),

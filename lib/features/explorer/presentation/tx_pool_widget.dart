@@ -72,28 +72,30 @@ class _TxPoolState extends ConsumerState<TxPool>
                             ),
                             dense: true,
                           )
-                        : InkWell(
-                            onTap: () => _showTransactionDetails(
-                                context, ref, _txPool[index].hash),
-                            hoverColor: AppColors.green,
-                            customBorder: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4)),
-                            child: Card(
-                              child: ListTile(
-                                title: Row(
-                                  children: [
-                                    const Spacer(),
-                                    Expanded(
-                                      flex: 2,
-                                      child: SelectableText(
-                                        _txPool[index].hash,
-                                        textAlign: TextAlign.center,
+                        : SelectionArea(
+                            child: InkWell(
+                              onTap: () => _showTransactionDetails(
+                                  context, ref, _txPool[index].hash),
+                              hoverColor: AppColors.green,
+                              customBorder: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4)),
+                              child: Card(
+                                child: ListTile(
+                                  title: Row(
+                                    children: [
+                                      const Spacer(),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Text(
+                                          _txPool[index].hash,
+                                          textAlign: TextAlign.center,
+                                        ),
                                       ),
-                                    ),
-                                    const Spacer(),
-                                  ],
+                                      const Spacer(),
+                                    ],
+                                  ),
+                                  dense: true,
                                 ),
-                                dense: true,
                               ),
                             ),
                           );

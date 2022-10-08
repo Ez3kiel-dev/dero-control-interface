@@ -14,7 +14,7 @@ final searchProvider =
       try {
         // BLOCK ?
         var block = await ref.watch(getBlockProvider(input).future);
-        debugPrint('block found');
+        // debugPrint('block found');
         return block;
       } catch (e) {
         debugPrint(e.toString());

@@ -56,9 +56,10 @@ final getBlockByHeightProvider =
   Map msg = {'topoheight': height};
   Map result =
       await ref.watch(derodRpcClientProvider).getBlockByTopoHeight(msg);
-  if (result['status'] != 'OK') throw ('getBlockByHeightProvider : KO STATUS');
-  var content = result['block_header'] as Map<String, dynamic>;
 
+  if (result['status'] != 'OK') throw ('getBlockByHeightProvider : KO STATUS');
+
+  var content = result['block_header'] as Map<String, dynamic>;
   final block = Block.fromJson(content);
   return block;
 });

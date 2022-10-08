@@ -67,121 +67,116 @@ class BlockDetails extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: ListTile(
-            title: Row(
+            title: Column(
               children: [
-                Expanded(
-                    child: Column(
-                  children: [
-                    const Padding(
+                Row(
+                  children: const [
+                    Expanded(
+                        child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         'Height',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: AppColors.green),
                       ),
-                    ),
-                    SelectableText(
-                      block.height.toString(),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(color: AppColors.text),
-                    ),
-                  ],
-                )),
-                Expanded(
-                    flex: 8,
-                    child: Column(
-                      children: [
-                        const Padding(
+                    )),
+                    Expanded(
+                        flex: 8,
+                        child: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Hash',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: AppColors.green),
                           ),
-                        ),
-                        SelectableText(
-                          block.hash.toString(),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: AppColors.text),
-                        ),
-                      ],
-                    )),
-                Expanded(
-                    flex: 2,
-                    child: Column(
-                      children: [
-                        const Padding(
+                        )),
+                    Expanded(
+                        flex: 2,
+                        child: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Difficulty',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: AppColors.green),
                           ),
-                        ),
-                        Text(
-                          block.difficulty.toString(),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: AppColors.text),
-                        ),
-                      ],
-                    )),
-                Expanded(
-                    child: Column(
-                  children: [
-                    const Padding(
+                        )),
+                    Expanded(
+                        child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         'TX count',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: AppColors.green),
                       ),
-                    ),
-                    Text(
-                      block.txcount.toString(),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(color: AppColors.text),
-                    ),
-                  ],
-                )),
-                Expanded(
-                    child: Column(
-                  children: [
-                    const Padding(
+                    )),
+                    Expanded(
+                        child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         'Reward',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: AppColors.green),
                       ),
-                    ),
-                    Text(
-                      (block.reward / 100000).toString(),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(color: AppColors.text),
-                    ),
-                  ],
-                )),
-                Expanded(
-                    flex: 2,
-                    child: Column(
-                      children: [
-                        const Padding(
+                    )),
+                    Expanded(
+                        flex: 2,
+                        child: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Timestamp',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: AppColors.green),
                           ),
-                        ),
-                        Text(
-                          DateFormat('HH:mm:ss').format(
-                              DateTime.fromMillisecondsSinceEpoch(
-                                  block.timestamp)),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: AppColors.text),
-                        ),
-                      ],
-                    )),
+                        )),
+                  ],
+                ),
+                SelectionArea(
+                  child: Row(
+                    children: [
+                      Expanded(
+                          child: Text(
+                        block.height.toString(),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(color: AppColors.text),
+                      )),
+                      Expanded(
+                          flex: 8,
+                          child: Text(
+                            block.hash.toString(),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: AppColors.text),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Text(
+                            block.difficulty.toString(),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: AppColors.text),
+                          )),
+                      Expanded(
+                          child: Text(
+                        block.txcount.toString(),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(color: AppColors.text),
+                      )),
+                      Expanded(
+                          child: Text(
+                        (block.reward / 100000).toString(),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(color: AppColors.text),
+                      )),
+                      Expanded(
+                          flex: 2,
+                          child: Text(
+                            DateFormat('HH:mm:ss').format(
+                                DateTime.fromMillisecondsSinceEpoch(
+                                    block.timestamp)),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: AppColors.text),
+                          )),
+                    ],
+                  ),
+                ),
               ],
             ),
             // dense: true,

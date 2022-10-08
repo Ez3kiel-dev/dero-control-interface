@@ -103,7 +103,7 @@ class _SmartContractDetailsState extends State<SmartContractDetails> {
                           const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                              'String Keys',
+                              'Variables',
                               textAlign: TextAlign.center,
                               style: TextStyle(color: AppColors.green),
                             ),

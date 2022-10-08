@@ -65,84 +65,87 @@ class TransactionDetails extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: ListTile(
-            title: Row(
+            title: Column(
               children: [
-                Expanded(
-                    flex: 2,
-                    child: Column(
-                      children: [
-                        const Padding(
+                Row(
+                  children: [
+                    const Expanded(
+                        flex: 2,
+                        child: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Block Height',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: AppColors.green),
                           ),
-                        ),
-                        SelectableText(
-                          transaction.height.toString(),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: AppColors.text),
-                        )
-                      ],
-                    )),
-                Expanded(
-                    flex: 7,
-                    child: Column(
-                      children: [
-                        const Padding(
+                        )),
+                    const Expanded(
+                        flex: 7,
+                        child: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Block Hash',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: AppColors.green),
                           ),
-                        ),
-                        SelectableText(
-                          transaction.blockHash.toString(),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: AppColors.text),
-                        )
-                      ],
-                    )),
-                Expanded(
-                    flex: 2,
-                    child: Column(
-                      children: [
-                        const Padding(
+                        )),
+                    const Expanded(
+                        flex: 2,
+                        child: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Ring Size',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: AppColors.green),
                           ),
-                        ),
-                        Text(
-                          transaction.ringSize.toString(),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: AppColors.text),
-                        ),
-                      ],
-                    )),
-                Expanded(
-                    flex: transaction.signer.toString().length > 2 ? 7 : 1,
-                    child: Column(
-                      children: [
-                        const Padding(
+                        )),
+                    Expanded(
+                        flex: transaction.signer.toString().length > 2 ? 7 : 1,
+                        child: const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Signer',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: AppColors.green),
                           ),
-                        ),
-                        SelectableText(
-                          transaction.signer.toString(),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: AppColors.text),
-                        )
-                      ],
-                    )),
+                        )),
+                  ],
+                ),
+                SelectionArea(
+                  child: Row(
+                    children: [
+                      Expanded(
+                          flex: 2,
+                          child: Text(
+                            transaction.height.toString(),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: AppColors.text),
+                          )),
+                      Expanded(
+                          flex: 7,
+                          child: Text(
+                            transaction.blockHash.toString(),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: AppColors.text),
+                          )),
+                      Expanded(
+                          flex: 2,
+                          child: Text(
+                            transaction.ringSize.toString(),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: AppColors.text),
+                          )),
+                      Expanded(
+                          flex:
+                              transaction.signer.toString().length > 2 ? 7 : 1,
+                          child: Text(
+                            transaction.signer.toString(),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: AppColors.text),
+                          )),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
