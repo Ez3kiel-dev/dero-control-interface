@@ -31,33 +31,37 @@ mixin _$Account {
 /// @nodoc
 abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
-      _$AccountCopyWithImpl<$Res>;
+      _$AccountCopyWithImpl<$Res, Account>;
+  @useResult
   $Res call({String name, String address});
 }
 
 /// @nodoc
-class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
+class _$AccountCopyWithImpl<$Res, $Val extends Account>
+    implements $AccountCopyWith<$Res> {
   _$AccountCopyWithImpl(this._value, this._then);
 
-  final Account _value;
   // ignore: unused_field
-  final $Res Function(Account) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? address = freezed,
+    Object? name = null,
+    Object? address = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -67,29 +71,29 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
           _$_Account value, $Res Function(_$_Account) then) =
       __$$_AccountCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String name, String address});
 }
 
 /// @nodoc
-class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
+class __$$_AccountCopyWithImpl<$Res>
+    extends _$AccountCopyWithImpl<$Res, _$_Account>
     implements _$$_AccountCopyWith<$Res> {
   __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then)
-      : super(_value, (v) => _then(v as _$_Account));
+      : super(_value, _then);
 
-  @override
-  _$_Account get _value => super._value as _$_Account;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? address = freezed,
+    Object? name = null,
+    Object? address = null,
   }) {
     return _then(_$_Account(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -120,25 +124,25 @@ class _$_Account implements _Account {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Account &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.address, address));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(address));
+  int get hashCode => Object.hash(runtimeType, name, address);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AccountCopyWith<_$_Account> get copyWith =>
       __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountToJson(this);
+    return _$$_AccountToJson(
+      this,
+    );
   }
 }
 
@@ -149,9 +153,9 @@ abstract class _Account implements Account {
   factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get address => throw _privateConstructorUsedError;
+  String get address;
   @override
   @JsonKey(ignore: true)
   _$$_AccountCopyWith<_$_Account> get copyWith =>

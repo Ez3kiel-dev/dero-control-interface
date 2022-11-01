@@ -36,7 +36,8 @@ mixin _$Transaction {
 abstract class $TransactionCopyWith<$Res> {
   factory $TransactionCopyWith(
           Transaction value, $Res Function(Transaction) then) =
-      _$TransactionCopyWithImpl<$Res>;
+      _$TransactionCopyWithImpl<$Res, Transaction>;
+  @useResult
   $Res call(
       {String hash,
       int? height,
@@ -46,43 +47,46 @@ abstract class $TransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
+class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
+    implements $TransactionCopyWith<$Res> {
   _$TransactionCopyWithImpl(this._value, this._then);
 
-  final Transaction _value;
   // ignore: unused_field
-  final $Res Function(Transaction) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hash = freezed,
+    Object? hash = null,
     Object? height = freezed,
     Object? blockHash = freezed,
     Object? ringSize = freezed,
     Object? signer = freezed,
   }) {
     return _then(_value.copyWith(
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
-      height: height == freezed
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as int?,
-      blockHash: blockHash == freezed
+      blockHash: freezed == blockHash
           ? _value.blockHash
           : blockHash // ignore: cast_nullable_to_non_nullable
               as String?,
-      ringSize: ringSize == freezed
+      ringSize: freezed == ringSize
           ? _value.ringSize
           : ringSize // ignore: cast_nullable_to_non_nullable
               as int?,
-      signer: signer == freezed
+      signer: freezed == signer
           ? _value.signer
           : signer // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -93,6 +97,7 @@ abstract class _$$_TransactionCopyWith<$Res>
           _$_Transaction value, $Res Function(_$_Transaction) then) =
       __$$_TransactionCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String hash,
       int? height,
@@ -102,41 +107,40 @@ abstract class _$$_TransactionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
+class __$$_TransactionCopyWithImpl<$Res>
+    extends _$TransactionCopyWithImpl<$Res, _$_Transaction>
     implements _$$_TransactionCopyWith<$Res> {
   __$$_TransactionCopyWithImpl(
       _$_Transaction _value, $Res Function(_$_Transaction) _then)
-      : super(_value, (v) => _then(v as _$_Transaction));
+      : super(_value, _then);
 
-  @override
-  _$_Transaction get _value => super._value as _$_Transaction;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hash = freezed,
+    Object? hash = null,
     Object? height = freezed,
     Object? blockHash = freezed,
     Object? ringSize = freezed,
     Object? signer = freezed,
   }) {
     return _then(_$_Transaction(
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as String,
-      height: height == freezed
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as int?,
-      blockHash: blockHash == freezed
+      blockHash: freezed == blockHash
           ? _value.blockHash
           : blockHash // ignore: cast_nullable_to_non_nullable
               as String?,
-      ringSize: ringSize == freezed
+      ringSize: freezed == ringSize
           ? _value.ringSize
           : ringSize // ignore: cast_nullable_to_non_nullable
               as int?,
-      signer: signer == freezed
+      signer: freezed == signer
           ? _value.signer
           : signer // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -178,31 +182,31 @@ class _$_Transaction implements _Transaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Transaction &&
-            const DeepCollectionEquality().equals(other.hash, hash) &&
-            const DeepCollectionEquality().equals(other.height, height) &&
-            const DeepCollectionEquality().equals(other.blockHash, blockHash) &&
-            const DeepCollectionEquality().equals(other.ringSize, ringSize) &&
-            const DeepCollectionEquality().equals(other.signer, signer));
+            (identical(other.hash, hash) || other.hash == hash) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.blockHash, blockHash) ||
+                other.blockHash == blockHash) &&
+            (identical(other.ringSize, ringSize) ||
+                other.ringSize == ringSize) &&
+            (identical(other.signer, signer) || other.signer == signer));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(hash),
-      const DeepCollectionEquality().hash(height),
-      const DeepCollectionEquality().hash(blockHash),
-      const DeepCollectionEquality().hash(ringSize),
-      const DeepCollectionEquality().hash(signer));
+  int get hashCode =>
+      Object.hash(runtimeType, hash, height, blockHash, ringSize, signer);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
       __$$_TransactionCopyWithImpl<_$_Transaction>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TransactionToJson(this);
+    return _$$_TransactionToJson(
+      this,
+    );
   }
 }
 
@@ -218,15 +222,15 @@ abstract class _Transaction implements Transaction {
       _$_Transaction.fromJson;
 
   @override
-  String get hash => throw _privateConstructorUsedError;
+  String get hash;
   @override
-  int? get height => throw _privateConstructorUsedError;
+  int? get height;
   @override
-  String? get blockHash => throw _privateConstructorUsedError;
+  String? get blockHash;
   @override
-  int? get ringSize => throw _privateConstructorUsedError;
+  int? get ringSize;
   @override
-  String? get signer => throw _privateConstructorUsedError;
+  String? get signer;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionCopyWith<_$_Transaction> get copyWith =>

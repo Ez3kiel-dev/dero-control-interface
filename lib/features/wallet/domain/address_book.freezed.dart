@@ -32,7 +32,8 @@ mixin _$AddressBook {
 abstract class $AddressBookCopyWith<$Res> {
   factory $AddressBookCopyWith(
           AddressBook value, $Res Function(AddressBook) then) =
-      _$AddressBookCopyWithImpl<$Res>;
+      _$AddressBookCopyWithImpl<$Res, AddressBook>;
+  @useResult
   $Res call(
       {Map<dynamic, dynamic> originalNameToAddressMap,
       Map<dynamic, dynamic> sortedNameToAddressMap,
@@ -40,33 +41,36 @@ abstract class $AddressBookCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AddressBookCopyWithImpl<$Res> implements $AddressBookCopyWith<$Res> {
+class _$AddressBookCopyWithImpl<$Res, $Val extends AddressBook>
+    implements $AddressBookCopyWith<$Res> {
   _$AddressBookCopyWithImpl(this._value, this._then);
 
-  final AddressBook _value;
   // ignore: unused_field
-  final $Res Function(AddressBook) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? originalNameToAddressMap = freezed,
-    Object? sortedNameToAddressMap = freezed,
-    Object? decompressedAddresses = freezed,
+    Object? originalNameToAddressMap = null,
+    Object? sortedNameToAddressMap = null,
+    Object? decompressedAddresses = null,
   }) {
     return _then(_value.copyWith(
-      originalNameToAddressMap: originalNameToAddressMap == freezed
+      originalNameToAddressMap: null == originalNameToAddressMap
           ? _value.originalNameToAddressMap
           : originalNameToAddressMap // ignore: cast_nullable_to_non_nullable
               as Map<dynamic, dynamic>,
-      sortedNameToAddressMap: sortedNameToAddressMap == freezed
+      sortedNameToAddressMap: null == sortedNameToAddressMap
           ? _value.sortedNameToAddressMap
           : sortedNameToAddressMap // ignore: cast_nullable_to_non_nullable
               as Map<dynamic, dynamic>,
-      decompressedAddresses: decompressedAddresses == freezed
+      decompressedAddresses: null == decompressedAddresses
           ? _value.decompressedAddresses
           : decompressedAddresses // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,6 +81,7 @@ abstract class _$$_AddressBookCopyWith<$Res>
           _$_AddressBook value, $Res Function(_$_AddressBook) then) =
       __$$_AddressBookCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Map<dynamic, dynamic> originalNameToAddressMap,
       Map<dynamic, dynamic> sortedNameToAddressMap,
@@ -84,31 +89,30 @@ abstract class _$$_AddressBookCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AddressBookCopyWithImpl<$Res> extends _$AddressBookCopyWithImpl<$Res>
+class __$$_AddressBookCopyWithImpl<$Res>
+    extends _$AddressBookCopyWithImpl<$Res, _$_AddressBook>
     implements _$$_AddressBookCopyWith<$Res> {
   __$$_AddressBookCopyWithImpl(
       _$_AddressBook _value, $Res Function(_$_AddressBook) _then)
-      : super(_value, (v) => _then(v as _$_AddressBook));
+      : super(_value, _then);
 
-  @override
-  _$_AddressBook get _value => super._value as _$_AddressBook;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? originalNameToAddressMap = freezed,
-    Object? sortedNameToAddressMap = freezed,
-    Object? decompressedAddresses = freezed,
+    Object? originalNameToAddressMap = null,
+    Object? sortedNameToAddressMap = null,
+    Object? decompressedAddresses = null,
   }) {
     return _then(_$_AddressBook(
-      originalNameToAddressMap: originalNameToAddressMap == freezed
+      originalNameToAddressMap: null == originalNameToAddressMap
           ? _value._originalNameToAddressMap
           : originalNameToAddressMap // ignore: cast_nullable_to_non_nullable
               as Map<dynamic, dynamic>,
-      sortedNameToAddressMap: sortedNameToAddressMap == freezed
+      sortedNameToAddressMap: null == sortedNameToAddressMap
           ? _value._sortedNameToAddressMap
           : sortedNameToAddressMap // ignore: cast_nullable_to_non_nullable
               as Map<dynamic, dynamic>,
-      decompressedAddresses: decompressedAddresses == freezed
+      decompressedAddresses: null == decompressedAddresses
           ? _value._decompressedAddresses
           : decompressedAddresses // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
@@ -178,6 +182,7 @@ class _$_AddressBook implements _AddressBook {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AddressBookCopyWith<_$_AddressBook> get copyWith =>
       __$$_AddressBookCopyWithImpl<_$_AddressBook>(this, _$identity);
 }
@@ -189,14 +194,11 @@ abstract class _AddressBook implements AddressBook {
       final Map<String, String> decompressedAddresses}) = _$_AddressBook;
 
   @override
-  Map<dynamic, dynamic> get originalNameToAddressMap =>
-      throw _privateConstructorUsedError;
+  Map<dynamic, dynamic> get originalNameToAddressMap;
   @override
-  Map<dynamic, dynamic> get sortedNameToAddressMap =>
-      throw _privateConstructorUsedError;
+  Map<dynamic, dynamic> get sortedNameToAddressMap;
   @override
-  Map<String, String> get decompressedAddresses =>
-      throw _privateConstructorUsedError;
+  Map<String, String> get decompressedAddresses;
   @override
   @JsonKey(ignore: true)
   _$$_AddressBookCopyWith<_$_AddressBook> get copyWith =>

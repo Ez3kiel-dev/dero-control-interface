@@ -28,128 +28,111 @@ class History extends StatelessWidget {
 
           return history.when(data: (_) {
             var transfers = ref.read(walletProvider).transfers;
-            return SizedBox(
-              height: double.maxFinite,
-              width: double.maxFinite,
-              child: DataTable2(
-                minWidth: 600,
-                columnSpacing: 12,
-                columns: kHistoryHeaderDataTable,
-                rows: List<DataRow>.generate(
-                    transfers.length,
-                    (index) =>
-                        DataRow2(specificRowHeight: 100, cells: <DataCell>[
-                          DataCell(Builder(builder: (context) {
-                            var dt = DateTime.tryParse(
-                                transfers.reversed.toList()[index].time);
-                            var fdt =
-                                DateFormat('dd/MM/yy\nHH:mm:ss').format(dt!);
-                            return Center(child: SelectableText(fdt));
-                          })),
-                          DataCell(Center(
-                            child: SelectableText(transfers.reversed
-                                .toList()[index]
-                                .height
-                                .toString()),
-                          )),
-                          DataCell(transfers.reversed.toList()[index].coinbase
+            var reversedTransfers = transfers.reversed.toList(growable: false);
+
+            var dataRows = List<DataRow2>.generate(
+                reversedTransfers.length,
+                (index) => DataRow2(specificRowHeight: 100, cells: <DataCell>[
+                      DataCell(Builder(builder: (context) {
+                        var dt =
+                            DateTime.tryParse(reversedTransfers[index].time);
+                        var fdt = DateFormat('dd/MM/yy\nHH:mm:ss').format(dt!);
+                        return Center(child: SelectableText(fdt));
+                      })),
+                      DataCell(Center(
+                        child: SelectableText(
+                            reversedTransfers[index].height.toString()),
+                      )),
+                      DataCell(reversedTransfers[index].coinbase
+                          ? const Center(
+                              child: FaIcon(
+                                FontAwesomeIcons.coins,
+                                color: AppColors.text,
+                              ),
+                            )
+                          : reversedTransfers[index].incoming
                               ? const Center(
                                   child: FaIcon(
-                                    FontAwesomeIcons.coins,
+                                    FontAwesomeIcons.arrowTurnDown,
                                     color: AppColors.text,
                                   ),
                                 )
-                              : transfers.reversed.toList()[index].incoming
-                                  ? const Center(
-                                      child: FaIcon(
-                                        FontAwesomeIcons.arrowTurnDown,
-                                        color: AppColors.text,
-                                      ),
-                                    )
-                                  : const Center(
-                                      child: FaIcon(
-                                        FontAwesomeIcons.arrowTurnUp,
-                                        color: AppColors.text,
-                                      ),
-                                    )),
-                          DataCell(Builder(builder: (context) {
-                            String data = transfers.reversed
-                                .toList()[index]
-                                .txid
-                                .toString();
-                            return Center(
-                              child: SelectableText(data),
-                            );
-                          })),
-                          DataCell(Builder(builder: (context) {
-                            String data =
-                                (transfers.reversed.toList()[index].amount /
-                                        100000)
-                                    .toString();
-                            return Center(
-                              child: SelectableText(data),
-                            );
-                          })),
-                          DataCell(Builder(builder: (context) {
-                            String data =
-                                (transfers.reversed.toList()[index].fees /
-                                        100000)
-                                    .toString();
-                            return Center(
-                              child: SelectableText(data),
-                            );
-                          })),
-                          DataCell(Builder(builder: (context) {
-                            String data = transfers.reversed
-                                .toList()[index]
-                                .blockhash
-                                .toString();
-                            return Center(
-                              child: SelectableText(data),
-                            );
-                          })),
-                          DataCell(Builder(builder: (context) {
-                            String data = transfers.reversed
-                                .toList()[index]
-                                .destination
-                                .toString();
-                            return Center(
-                              child: SelectableText(data),
-                            );
-                          })),
-                          DataCell(Builder(builder: (context) {
-                            String data = transfers.reversed
-                                .toList()[index]
-                                .sender
-                                .toString();
-                            return Center(
-                              child: SelectableText(data),
-                            );
-                          })),
-                          DataCell(Builder(builder: (context) {
-                            String data = transfers.reversed
-                                .toList()[index]
-                                .proof
-                                .toString();
-                            return Center(
-                              child: SelectableText(data),
-                            );
-                          })),
-                          DataCell(Builder(builder: (context) {
-                            String data = '';
-                            var payload =
-                                transfers.reversed.toList()[index].payload_rpc;
-                            if (payload != null) {
-                              data = payload[0]['value'].toString();
-                            } else {
-                              data = '/';
-                            }
-                            return Center(
-                              child: SelectableText(data),
-                            );
-                          })),
-                        ])),
-              ),
+                              : const Center(
+                                  child: FaIcon(
+                                    FontAwesomeIcons.arrowTurnUp,
+                                    color: AppColors.text,
+                                  ),
+                                )),
+                      DataCell(Builder(builder: (context) {
+                        String data = reversedTransfers[index].txid.toString();
+                        return Center(
+                          child: SelectableText(data),
+                        );
+                      })),
+                      DataCell(Builder(builder: (context) {
+                        String data = (reversedTransfers[index].amount / 100000)
+                            .toString();
+                        return Center(
+                          child: SelectableText(data),
+                        );
+                      })),
+                      DataCell(Builder(builder: (context) {
+                        String data =
+                            (reversedTransfers[index].fees / 100000).toString();
+                        return Center(
+                          child: SelectableText(data),
+                        );
+                      })),
+                      DataCell(Builder(builder: (context) {
+                        String data =
+                            reversedTransfers[index].blockhash.toString();
+                        return Center(
+                          child: SelectableText(data),
+                        );
+                      })),
+                      DataCell(Builder(builder: (context) {
+                        String data =
+                            reversedTransfers[index].destination.toString();
+                        return Center(
+                          child: SelectableText(data),
+                        );
+                      })),
+                      DataCell(Builder(builder: (context) {
+                        String data =
+                            reversedTransfers[index].sender.toString();
+                        return Center(
+                          child: SelectableText(data),
+                        );
+                      })),
+                      DataCell(Builder(builder: (context) {
+                        String data = reversedTransfers[index].proof.toString();
+                        return Center(
+                          child: SelectableText(data),
+                        );
+                      })),
+                      DataCell(Builder(builder: (context) {
+                        String data = '';
+                        var payload = reversedTransfers[index].payload_rpc;
+                        if (payload != null) {
+                          data = payload[0]['value'].toString();
+                        } else {
+                          data = '/';
+                        }
+                        return Center(
+                          child: SelectableText(data),
+                        );
+                      })),
+                    ]),
+                growable: false);
+
+            return SizedBox(
+              height: double.maxFinite,
+              width: double.maxFinite,
+              child: PaginatedDataTable2(
+                  minWidth: 600,
+                  columnSpacing: 12,
+                  columns: kHistoryHeaderDataTable,
+                  source: HistoryDataSource(dataRows)),
             );
           }, error: (error, stacktrace) {
             return SizedBox(
@@ -294,3 +277,23 @@ final kHistoryHeaderDataTable = [
         ),
       )),
 ];
+
+class HistoryDataSource extends DataTableSource {
+  final List<DataRow2> _data;
+
+  HistoryDataSource(this._data);
+
+  @override
+  DataRow? getRow(int index) {
+    return _data[index];
+  }
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get rowCount => _data.length;
+
+  @override
+  int get selectedRowCount => 0;
+}

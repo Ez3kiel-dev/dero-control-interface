@@ -10,7 +10,7 @@ import 'package:go_router/go_router.dart';
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     debugLogDiagnostics: true,
-    redirect: (state) {
+    redirect: (context, state) {
       bool connectionOk = false;
       final isDerodConnected = ref.read(derodConnectionStateProvider);
       final isWalletConnected = ref.read(walletConnectionStateProvider);

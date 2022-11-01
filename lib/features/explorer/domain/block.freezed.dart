@@ -36,7 +36,8 @@ mixin _$Block {
 /// @nodoc
 abstract class $BlockCopyWith<$Res> {
   factory $BlockCopyWith(Block value, $Res Function(Block) then) =
-      _$BlockCopyWithImpl<$Res>;
+      _$BlockCopyWithImpl<$Res, Block>;
+  @useResult
   $Res call(
       {dynamic height,
       dynamic hash,
@@ -48,53 +49,56 @@ abstract class $BlockCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$BlockCopyWithImpl<$Res> implements $BlockCopyWith<$Res> {
+class _$BlockCopyWithImpl<$Res, $Val extends Block>
+    implements $BlockCopyWith<$Res> {
   _$BlockCopyWithImpl(this._value, this._then);
 
-  final Block _value;
   // ignore: unused_field
-  final $Res Function(Block) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? height = freezed,
-    Object? hash = freezed,
-    Object? difficulty = freezed,
-    Object? txcount = freezed,
-    Object? topoheight = freezed,
-    Object? reward = freezed,
-    Object? timestamp = freezed,
+    Object? height = null,
+    Object? hash = null,
+    Object? difficulty = null,
+    Object? txcount = null,
+    Object? topoheight = null,
+    Object? reward = null,
+    Object? timestamp = null,
   }) {
     return _then(_value.copyWith(
-      height: height == freezed
+      height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      difficulty: difficulty == freezed
+      difficulty: null == difficulty
           ? _value.difficulty
           : difficulty // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      txcount: txcount == freezed
+      txcount: null == txcount
           ? _value.txcount
           : txcount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      topoheight: topoheight == freezed
+      topoheight: null == topoheight
           ? _value.topoheight
           : topoheight // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      reward: reward == freezed
+      reward: null == reward
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      timestamp: timestamp == freezed
+      timestamp: null == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-    ));
+    ) as $Val);
   }
 }
 
@@ -103,6 +107,7 @@ abstract class _$$_BlockCopyWith<$Res> implements $BlockCopyWith<$Res> {
   factory _$$_BlockCopyWith(_$_Block value, $Res Function(_$_Block) then) =
       __$$_BlockCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {dynamic height,
       dynamic hash,
@@ -114,50 +119,48 @@ abstract class _$$_BlockCopyWith<$Res> implements $BlockCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_BlockCopyWithImpl<$Res> extends _$BlockCopyWithImpl<$Res>
+class __$$_BlockCopyWithImpl<$Res> extends _$BlockCopyWithImpl<$Res, _$_Block>
     implements _$$_BlockCopyWith<$Res> {
   __$$_BlockCopyWithImpl(_$_Block _value, $Res Function(_$_Block) _then)
-      : super(_value, (v) => _then(v as _$_Block));
+      : super(_value, _then);
 
-  @override
-  _$_Block get _value => super._value as _$_Block;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? height = freezed,
-    Object? hash = freezed,
-    Object? difficulty = freezed,
-    Object? txcount = freezed,
-    Object? topoheight = freezed,
-    Object? reward = freezed,
-    Object? timestamp = freezed,
+    Object? height = null,
+    Object? hash = null,
+    Object? difficulty = null,
+    Object? txcount = null,
+    Object? topoheight = null,
+    Object? reward = null,
+    Object? timestamp = null,
   }) {
     return _then(_$_Block(
-      height: height == freezed
+      height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hash: hash == freezed
+      hash: null == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      difficulty: difficulty == freezed
+      difficulty: null == difficulty
           ? _value.difficulty
           : difficulty // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      txcount: txcount == freezed
+      txcount: null == txcount
           ? _value.txcount
           : txcount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      topoheight: topoheight == freezed
+      topoheight: null == topoheight
           ? _value.topoheight
           : topoheight // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      reward: reward == freezed
+      reward: null == reward
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      timestamp: timestamp == freezed
+      timestamp: null == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -230,12 +233,15 @@ class _$_Block implements _Block {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_BlockCopyWith<_$_Block> get copyWith =>
       __$$_BlockCopyWithImpl<_$_Block>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BlockToJson(this);
+    return _$$_BlockToJson(
+      this,
+    );
   }
 }
 
@@ -252,19 +258,19 @@ abstract class _Block implements Block {
   factory _Block.fromJson(Map<String, dynamic> json) = _$_Block.fromJson;
 
   @override
-  dynamic get height => throw _privateConstructorUsedError;
+  dynamic get height;
   @override
-  dynamic get hash => throw _privateConstructorUsedError;
+  dynamic get hash;
   @override
-  dynamic get difficulty => throw _privateConstructorUsedError;
+  dynamic get difficulty;
   @override
-  dynamic get txcount => throw _privateConstructorUsedError;
+  dynamic get txcount;
   @override
-  dynamic get topoheight => throw _privateConstructorUsedError;
+  dynamic get topoheight;
   @override
-  dynamic get reward => throw _privateConstructorUsedError;
+  dynamic get reward;
   @override
-  dynamic get timestamp => throw _privateConstructorUsedError;
+  dynamic get timestamp;
   @override
   @JsonKey(ignore: true)
   _$$_BlockCopyWith<_$_Block> get copyWith =>

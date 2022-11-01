@@ -28,34 +28,37 @@ mixin _$TransferResult {
 abstract class $TransferResultCopyWith<$Res> {
   factory $TransferResultCopyWith(
           TransferResult value, $Res Function(TransferResult) then) =
-      _$TransferResultCopyWithImpl<$Res>;
+      _$TransferResultCopyWithImpl<$Res, TransferResult>;
+  @useResult
   $Res call({TransferState transferState, String data});
 }
 
 /// @nodoc
-class _$TransferResultCopyWithImpl<$Res>
+class _$TransferResultCopyWithImpl<$Res, $Val extends TransferResult>
     implements $TransferResultCopyWith<$Res> {
   _$TransferResultCopyWithImpl(this._value, this._then);
 
-  final TransferResult _value;
   // ignore: unused_field
-  final $Res Function(TransferResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transferState = freezed,
-    Object? data = freezed,
+    Object? transferState = null,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
-      transferState: transferState == freezed
+      transferState: null == transferState
           ? _value.transferState
           : transferState // ignore: cast_nullable_to_non_nullable
               as TransferState,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,31 +69,30 @@ abstract class _$$_TransferResultCopyWith<$Res>
           _$_TransferResult value, $Res Function(_$_TransferResult) then) =
       __$$_TransferResultCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({TransferState transferState, String data});
 }
 
 /// @nodoc
 class __$$_TransferResultCopyWithImpl<$Res>
-    extends _$TransferResultCopyWithImpl<$Res>
+    extends _$TransferResultCopyWithImpl<$Res, _$_TransferResult>
     implements _$$_TransferResultCopyWith<$Res> {
   __$$_TransferResultCopyWithImpl(
       _$_TransferResult _value, $Res Function(_$_TransferResult) _then)
-      : super(_value, (v) => _then(v as _$_TransferResult));
+      : super(_value, _then);
 
-  @override
-  _$_TransferResult get _value => super._value as _$_TransferResult;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transferState = freezed,
-    Object? data = freezed,
+    Object? transferState = null,
+    Object? data = null,
   }) {
     return _then(_$_TransferResult(
-      transferState: transferState == freezed
+      transferState: null == transferState
           ? _value.transferState
           : transferState // ignore: cast_nullable_to_non_nullable
               as TransferState,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
@@ -121,19 +123,17 @@ class _$_TransferResult implements _TransferResult {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransferResult &&
-            const DeepCollectionEquality()
-                .equals(other.transferState, transferState) &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.transferState, transferState) ||
+                other.transferState == transferState) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(transferState),
-      const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, transferState, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransferResultCopyWith<_$_TransferResult> get copyWith =>
       __$$_TransferResultCopyWithImpl<_$_TransferResult>(this, _$identity);
 }
@@ -144,9 +144,9 @@ abstract class _TransferResult implements TransferResult {
       final String data}) = _$_TransferResult;
 
   @override
-  TransferState get transferState => throw _privateConstructorUsedError;
+  TransferState get transferState;
   @override
-  String get data => throw _privateConstructorUsedError;
+  String get data;
   @override
   @JsonKey(ignore: true)
   _$$_TransferResultCopyWith<_$_TransferResult> get copyWith =>

@@ -35,7 +35,8 @@ mixin _$SmartContract {
 abstract class $SmartContractCopyWith<$Res> {
   factory $SmartContractCopyWith(
           SmartContract value, $Res Function(SmartContract) then) =
-      _$SmartContractCopyWithImpl<$Res>;
+      _$SmartContractCopyWithImpl<$Res, SmartContract>;
+  @useResult
   $Res call(
       {String? scid,
       Map<String, dynamic> stringkeys,
@@ -44,39 +45,41 @@ abstract class $SmartContractCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SmartContractCopyWithImpl<$Res>
+class _$SmartContractCopyWithImpl<$Res, $Val extends SmartContract>
     implements $SmartContractCopyWith<$Res> {
   _$SmartContractCopyWithImpl(this._value, this._then);
 
-  final SmartContract _value;
   // ignore: unused_field
-  final $Res Function(SmartContract) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? scid = freezed,
-    Object? stringkeys = freezed,
-    Object? balance = freezed,
-    Object? code = freezed,
+    Object? stringkeys = null,
+    Object? balance = null,
+    Object? code = null,
   }) {
     return _then(_value.copyWith(
-      scid: scid == freezed
+      scid: freezed == scid
           ? _value.scid
           : scid // ignore: cast_nullable_to_non_nullable
               as String?,
-      stringkeys: stringkeys == freezed
+      stringkeys: null == stringkeys
           ? _value.stringkeys
           : stringkeys // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      balance: balance == freezed
+      balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as int,
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -87,6 +90,7 @@ abstract class _$$_SmartContractCopyWith<$Res>
           _$_SmartContract value, $Res Function(_$_SmartContract) then) =
       __$$_SmartContractCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? scid,
       Map<String, dynamic> stringkeys,
@@ -96,36 +100,34 @@ abstract class _$$_SmartContractCopyWith<$Res>
 
 /// @nodoc
 class __$$_SmartContractCopyWithImpl<$Res>
-    extends _$SmartContractCopyWithImpl<$Res>
+    extends _$SmartContractCopyWithImpl<$Res, _$_SmartContract>
     implements _$$_SmartContractCopyWith<$Res> {
   __$$_SmartContractCopyWithImpl(
       _$_SmartContract _value, $Res Function(_$_SmartContract) _then)
-      : super(_value, (v) => _then(v as _$_SmartContract));
+      : super(_value, _then);
 
-  @override
-  _$_SmartContract get _value => super._value as _$_SmartContract;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? scid = freezed,
-    Object? stringkeys = freezed,
-    Object? balance = freezed,
-    Object? code = freezed,
+    Object? stringkeys = null,
+    Object? balance = null,
+    Object? code = null,
   }) {
     return _then(_$_SmartContract(
-      scid: scid == freezed
+      scid: freezed == scid
           ? _value.scid
           : scid // ignore: cast_nullable_to_non_nullable
               as String?,
-      stringkeys: stringkeys == freezed
+      stringkeys: null == stringkeys
           ? _value._stringkeys
           : stringkeys // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      balance: balance == freezed
+      balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as int,
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
@@ -173,30 +175,29 @@ class _$_SmartContract implements _SmartContract {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SmartContract &&
-            const DeepCollectionEquality().equals(other.scid, scid) &&
+            (identical(other.scid, scid) || other.scid == scid) &&
             const DeepCollectionEquality()
                 .equals(other._stringkeys, _stringkeys) &&
-            const DeepCollectionEquality().equals(other.balance, balance) &&
-            const DeepCollectionEquality().equals(other.code, code));
+            (identical(other.balance, balance) || other.balance == balance) &&
+            (identical(other.code, code) || other.code == code));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(scid),
-      const DeepCollectionEquality().hash(_stringkeys),
-      const DeepCollectionEquality().hash(balance),
-      const DeepCollectionEquality().hash(code));
+  int get hashCode => Object.hash(runtimeType, scid,
+      const DeepCollectionEquality().hash(_stringkeys), balance, code);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SmartContractCopyWith<_$_SmartContract> get copyWith =>
       __$$_SmartContractCopyWithImpl<_$_SmartContract>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SmartContractToJson(this);
+    return _$$_SmartContractToJson(
+      this,
+    );
   }
 }
 
@@ -211,13 +212,13 @@ abstract class _SmartContract implements SmartContract {
       _$_SmartContract.fromJson;
 
   @override
-  String? get scid => throw _privateConstructorUsedError;
+  String? get scid;
   @override
-  Map<String, dynamic> get stringkeys => throw _privateConstructorUsedError;
+  Map<String, dynamic> get stringkeys;
   @override
-  int get balance => throw _privateConstructorUsedError;
+  int get balance;
   @override
-  String get code => throw _privateConstructorUsedError;
+  String get code;
   @override
   @JsonKey(ignore: true)
   _$$_SmartContractCopyWith<_$_SmartContract> get copyWith =>

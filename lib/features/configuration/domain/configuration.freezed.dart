@@ -38,7 +38,8 @@ mixin _$Configuration {
 abstract class $ConfigurationCopyWith<$Res> {
   factory $ConfigurationCopyWith(
           Configuration value, $Res Function(Configuration) then) =
-      _$ConfigurationCopyWithImpl<$Res>;
+      _$ConfigurationCopyWithImpl<$Res, Configuration>;
+  @useResult
   $Res call(
       {String myDerodAddress,
       String defaultRemoteDaemon,
@@ -50,54 +51,56 @@ abstract class $ConfigurationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConfigurationCopyWithImpl<$Res>
+class _$ConfigurationCopyWithImpl<$Res, $Val extends Configuration>
     implements $ConfigurationCopyWith<$Res> {
   _$ConfigurationCopyWithImpl(this._value, this._then);
 
-  final Configuration _value;
   // ignore: unused_field
-  final $Res Function(Configuration) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? myDerodAddress = freezed,
-    Object? defaultRemoteDaemon = freezed,
-    Object? myWalletAddress = freezed,
-    Object? defaultWalletAddress = freezed,
-    Object? username = freezed,
-    Object? walletAddressRequired = freezed,
-    Object? walletAuthenticationRequired = freezed,
+    Object? myDerodAddress = null,
+    Object? defaultRemoteDaemon = null,
+    Object? myWalletAddress = null,
+    Object? defaultWalletAddress = null,
+    Object? username = null,
+    Object? walletAddressRequired = null,
+    Object? walletAuthenticationRequired = null,
   }) {
     return _then(_value.copyWith(
-      myDerodAddress: myDerodAddress == freezed
+      myDerodAddress: null == myDerodAddress
           ? _value.myDerodAddress
           : myDerodAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      defaultRemoteDaemon: defaultRemoteDaemon == freezed
+      defaultRemoteDaemon: null == defaultRemoteDaemon
           ? _value.defaultRemoteDaemon
           : defaultRemoteDaemon // ignore: cast_nullable_to_non_nullable
               as String,
-      myWalletAddress: myWalletAddress == freezed
+      myWalletAddress: null == myWalletAddress
           ? _value.myWalletAddress
           : myWalletAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      defaultWalletAddress: defaultWalletAddress == freezed
+      defaultWalletAddress: null == defaultWalletAddress
           ? _value.defaultWalletAddress
           : defaultWalletAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      walletAddressRequired: walletAddressRequired == freezed
+      walletAddressRequired: null == walletAddressRequired
           ? _value.walletAddressRequired
           : walletAddressRequired // ignore: cast_nullable_to_non_nullable
               as bool,
-      walletAuthenticationRequired: walletAuthenticationRequired == freezed
+      walletAuthenticationRequired: null == walletAuthenticationRequired
           ? _value.walletAuthenticationRequired
           : walletAuthenticationRequired // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -108,6 +111,7 @@ abstract class _$$_ConfigurationCopyWith<$Res>
           _$_Configuration value, $Res Function(_$_Configuration) then) =
       __$$_ConfigurationCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String myDerodAddress,
       String defaultRemoteDaemon,
@@ -120,51 +124,49 @@ abstract class _$$_ConfigurationCopyWith<$Res>
 
 /// @nodoc
 class __$$_ConfigurationCopyWithImpl<$Res>
-    extends _$ConfigurationCopyWithImpl<$Res>
+    extends _$ConfigurationCopyWithImpl<$Res, _$_Configuration>
     implements _$$_ConfigurationCopyWith<$Res> {
   __$$_ConfigurationCopyWithImpl(
       _$_Configuration _value, $Res Function(_$_Configuration) _then)
-      : super(_value, (v) => _then(v as _$_Configuration));
+      : super(_value, _then);
 
-  @override
-  _$_Configuration get _value => super._value as _$_Configuration;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? myDerodAddress = freezed,
-    Object? defaultRemoteDaemon = freezed,
-    Object? myWalletAddress = freezed,
-    Object? defaultWalletAddress = freezed,
-    Object? username = freezed,
-    Object? walletAddressRequired = freezed,
-    Object? walletAuthenticationRequired = freezed,
+    Object? myDerodAddress = null,
+    Object? defaultRemoteDaemon = null,
+    Object? myWalletAddress = null,
+    Object? defaultWalletAddress = null,
+    Object? username = null,
+    Object? walletAddressRequired = null,
+    Object? walletAuthenticationRequired = null,
   }) {
     return _then(_$_Configuration(
-      myDerodAddress: myDerodAddress == freezed
+      myDerodAddress: null == myDerodAddress
           ? _value.myDerodAddress
           : myDerodAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      defaultRemoteDaemon: defaultRemoteDaemon == freezed
+      defaultRemoteDaemon: null == defaultRemoteDaemon
           ? _value.defaultRemoteDaemon
           : defaultRemoteDaemon // ignore: cast_nullable_to_non_nullable
               as String,
-      myWalletAddress: myWalletAddress == freezed
+      myWalletAddress: null == myWalletAddress
           ? _value.myWalletAddress
           : myWalletAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      defaultWalletAddress: defaultWalletAddress == freezed
+      defaultWalletAddress: null == defaultWalletAddress
           ? _value.defaultWalletAddress
           : defaultWalletAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      walletAddressRequired: walletAddressRequired == freezed
+      walletAddressRequired: null == walletAddressRequired
           ? _value.walletAddressRequired
           : walletAddressRequired // ignore: cast_nullable_to_non_nullable
               as bool,
-      walletAuthenticationRequired: walletAuthenticationRequired == freezed
+      walletAuthenticationRequired: null == walletAuthenticationRequired
           ? _value.walletAuthenticationRequired
           : walletAuthenticationRequired // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -227,42 +229,47 @@ class _$_Configuration with DiagnosticableTreeMixin implements _Configuration {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Configuration &&
-            const DeepCollectionEquality()
-                .equals(other.myDerodAddress, myDerodAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.defaultRemoteDaemon, defaultRemoteDaemon) &&
-            const DeepCollectionEquality()
-                .equals(other.myWalletAddress, myWalletAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.defaultWalletAddress, defaultWalletAddress) &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality()
-                .equals(other.walletAddressRequired, walletAddressRequired) &&
-            const DeepCollectionEquality().equals(
-                other.walletAuthenticationRequired,
-                walletAuthenticationRequired));
+            (identical(other.myDerodAddress, myDerodAddress) ||
+                other.myDerodAddress == myDerodAddress) &&
+            (identical(other.defaultRemoteDaemon, defaultRemoteDaemon) ||
+                other.defaultRemoteDaemon == defaultRemoteDaemon) &&
+            (identical(other.myWalletAddress, myWalletAddress) ||
+                other.myWalletAddress == myWalletAddress) &&
+            (identical(other.defaultWalletAddress, defaultWalletAddress) ||
+                other.defaultWalletAddress == defaultWalletAddress) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.walletAddressRequired, walletAddressRequired) ||
+                other.walletAddressRequired == walletAddressRequired) &&
+            (identical(other.walletAuthenticationRequired,
+                    walletAuthenticationRequired) ||
+                other.walletAuthenticationRequired ==
+                    walletAuthenticationRequired));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(myDerodAddress),
-      const DeepCollectionEquality().hash(defaultRemoteDaemon),
-      const DeepCollectionEquality().hash(myWalletAddress),
-      const DeepCollectionEquality().hash(defaultWalletAddress),
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(walletAddressRequired),
-      const DeepCollectionEquality().hash(walletAuthenticationRequired));
+      myDerodAddress,
+      defaultRemoteDaemon,
+      myWalletAddress,
+      defaultWalletAddress,
+      username,
+      walletAddressRequired,
+      walletAuthenticationRequired);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ConfigurationCopyWith<_$_Configuration> get copyWith =>
       __$$_ConfigurationCopyWithImpl<_$_Configuration>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ConfigurationToJson(this);
+    return _$$_ConfigurationToJson(
+      this,
+    );
   }
 }
 
@@ -280,19 +287,19 @@ abstract class _Configuration implements Configuration {
       _$_Configuration.fromJson;
 
   @override
-  String get myDerodAddress => throw _privateConstructorUsedError;
+  String get myDerodAddress;
   @override
-  String get defaultRemoteDaemon => throw _privateConstructorUsedError;
+  String get defaultRemoteDaemon;
   @override
-  String get myWalletAddress => throw _privateConstructorUsedError;
+  String get myWalletAddress;
   @override
-  String get defaultWalletAddress => throw _privateConstructorUsedError;
+  String get defaultWalletAddress;
   @override
-  String get username => throw _privateConstructorUsedError;
+  String get username;
   @override
-  bool get walletAddressRequired => throw _privateConstructorUsedError;
+  bool get walletAddressRequired;
   @override
-  bool get walletAuthenticationRequired => throw _privateConstructorUsedError;
+  bool get walletAuthenticationRequired;
   @override
   @JsonKey(ignore: true)
   _$$_ConfigurationCopyWith<_$_Configuration> get copyWith =>

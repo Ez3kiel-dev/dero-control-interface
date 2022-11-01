@@ -29,43 +29,47 @@ mixin _$Transfer {
 /// @nodoc
 abstract class $TransferCopyWith<$Res> {
   factory $TransferCopyWith(Transfer value, $Res Function(Transfer) then) =
-      _$TransferCopyWithImpl<$Res>;
+      _$TransferCopyWithImpl<$Res, Transfer>;
+  @useResult
   $Res call({String destination, int amount, int ringsize, String comment});
 }
 
 /// @nodoc
-class _$TransferCopyWithImpl<$Res> implements $TransferCopyWith<$Res> {
+class _$TransferCopyWithImpl<$Res, $Val extends Transfer>
+    implements $TransferCopyWith<$Res> {
   _$TransferCopyWithImpl(this._value, this._then);
 
-  final Transfer _value;
   // ignore: unused_field
-  final $Res Function(Transfer) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? destination = freezed,
-    Object? amount = freezed,
-    Object? ringsize = freezed,
-    Object? comment = freezed,
+    Object? destination = null,
+    Object? amount = null,
+    Object? ringsize = null,
+    Object? comment = null,
   }) {
     return _then(_value.copyWith(
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int,
-      ringsize: ringsize == freezed
+      ringsize: null == ringsize
           ? _value.ringsize
           : ringsize // ignore: cast_nullable_to_non_nullable
               as int,
-      comment: comment == freezed
+      comment: null == comment
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,40 +79,40 @@ abstract class _$$_TransferCopyWith<$Res> implements $TransferCopyWith<$Res> {
           _$_Transfer value, $Res Function(_$_Transfer) then) =
       __$$_TransferCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String destination, int amount, int ringsize, String comment});
 }
 
 /// @nodoc
-class __$$_TransferCopyWithImpl<$Res> extends _$TransferCopyWithImpl<$Res>
+class __$$_TransferCopyWithImpl<$Res>
+    extends _$TransferCopyWithImpl<$Res, _$_Transfer>
     implements _$$_TransferCopyWith<$Res> {
   __$$_TransferCopyWithImpl(
       _$_Transfer _value, $Res Function(_$_Transfer) _then)
-      : super(_value, (v) => _then(v as _$_Transfer));
+      : super(_value, _then);
 
-  @override
-  _$_Transfer get _value => super._value as _$_Transfer;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? destination = freezed,
-    Object? amount = freezed,
-    Object? ringsize = freezed,
-    Object? comment = freezed,
+    Object? destination = null,
+    Object? amount = null,
+    Object? ringsize = null,
+    Object? comment = null,
   }) {
     return _then(_$_Transfer(
-      destination: destination == freezed
+      destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int,
-      ringsize: ringsize == freezed
+      ringsize: null == ringsize
           ? _value.ringsize
           : ringsize // ignore: cast_nullable_to_non_nullable
               as int,
-      comment: comment == freezed
+      comment: null == comment
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String,
@@ -145,23 +149,21 @@ class _$_Transfer implements _Transfer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Transfer &&
-            const DeepCollectionEquality()
-                .equals(other.destination, destination) &&
-            const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.ringsize, ringsize) &&
-            const DeepCollectionEquality().equals(other.comment, comment));
+            (identical(other.destination, destination) ||
+                other.destination == destination) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.ringsize, ringsize) ||
+                other.ringsize == ringsize) &&
+            (identical(other.comment, comment) || other.comment == comment));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(destination),
-      const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(ringsize),
-      const DeepCollectionEquality().hash(comment));
+  int get hashCode =>
+      Object.hash(runtimeType, destination, amount, ringsize, comment);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TransferCopyWith<_$_Transfer> get copyWith =>
       __$$_TransferCopyWithImpl<_$_Transfer>(this, _$identity);
 }
@@ -174,13 +176,13 @@ abstract class _Transfer implements Transfer {
       required final String comment}) = _$_Transfer;
 
   @override
-  String get destination => throw _privateConstructorUsedError;
+  String get destination;
   @override
-  int get amount => throw _privateConstructorUsedError;
+  int get amount;
   @override // dero atomic unit
-  int get ringsize => throw _privateConstructorUsedError;
+  int get ringsize;
   @override
-  String get comment => throw _privateConstructorUsedError;
+  String get comment;
   @override
   @JsonKey(ignore: true)
   _$$_TransferCopyWith<_$_Transfer> get copyWith =>

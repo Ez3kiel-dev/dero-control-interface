@@ -34,7 +34,8 @@ mixin _$Wallet {
 /// @nodoc
 abstract class $WalletCopyWith<$Res> {
   factory $WalletCopyWith(Wallet value, $Res Function(Wallet) then) =
-      _$WalletCopyWithImpl<$Res>;
+      _$WalletCopyWithImpl<$Res, Wallet>;
+  @useResult
   $Res call(
       {String address,
       int height,
@@ -44,43 +45,46 @@ abstract class $WalletCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WalletCopyWithImpl<$Res> implements $WalletCopyWith<$Res> {
+class _$WalletCopyWithImpl<$Res, $Val extends Wallet>
+    implements $WalletCopyWith<$Res> {
   _$WalletCopyWithImpl(this._value, this._then);
 
-  final Wallet _value;
   // ignore: unused_field
-  final $Res Function(Wallet) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
-    Object? height = freezed,
-    Object? balance = freezed,
-    Object? transfers = freezed,
-    Object? lastHistoryCheck = freezed,
+    Object? address = null,
+    Object? height = null,
+    Object? balance = null,
+    Object? transfers = null,
+    Object? lastHistoryCheck = null,
   }) {
     return _then(_value.copyWith(
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      height: height == freezed
+      height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as int,
-      balance: balance == freezed
+      balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as int,
-      transfers: transfers == freezed
+      transfers: null == transfers
           ? _value.transfers
           : transfers // ignore: cast_nullable_to_non_nullable
               as List<Entry>,
-      lastHistoryCheck: lastHistoryCheck == freezed
+      lastHistoryCheck: null == lastHistoryCheck
           ? _value.lastHistoryCheck
           : lastHistoryCheck // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -89,6 +93,7 @@ abstract class _$$_WalletCopyWith<$Res> implements $WalletCopyWith<$Res> {
   factory _$$_WalletCopyWith(_$_Wallet value, $Res Function(_$_Wallet) then) =
       __$$_WalletCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String address,
       int height,
@@ -98,40 +103,39 @@ abstract class _$$_WalletCopyWith<$Res> implements $WalletCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WalletCopyWithImpl<$Res> extends _$WalletCopyWithImpl<$Res>
+class __$$_WalletCopyWithImpl<$Res>
+    extends _$WalletCopyWithImpl<$Res, _$_Wallet>
     implements _$$_WalletCopyWith<$Res> {
   __$$_WalletCopyWithImpl(_$_Wallet _value, $Res Function(_$_Wallet) _then)
-      : super(_value, (v) => _then(v as _$_Wallet));
+      : super(_value, _then);
 
-  @override
-  _$_Wallet get _value => super._value as _$_Wallet;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
-    Object? height = freezed,
-    Object? balance = freezed,
-    Object? transfers = freezed,
-    Object? lastHistoryCheck = freezed,
+    Object? address = null,
+    Object? height = null,
+    Object? balance = null,
+    Object? transfers = null,
+    Object? lastHistoryCheck = null,
   }) {
     return _then(_$_Wallet(
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      height: height == freezed
+      height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as int,
-      balance: balance == freezed
+      balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as int,
-      transfers: transfers == freezed
+      transfers: null == transfers
           ? _value._transfers
           : transfers // ignore: cast_nullable_to_non_nullable
               as List<Entry>,
-      lastHistoryCheck: lastHistoryCheck == freezed
+      lastHistoryCheck: null == lastHistoryCheck
           ? _value.lastHistoryCheck
           : lastHistoryCheck // ignore: cast_nullable_to_non_nullable
               as int,
@@ -184,33 +188,31 @@ class _$_Wallet implements _Wallet {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Wallet &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.height, height) &&
-            const DeepCollectionEquality().equals(other.balance, balance) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.balance, balance) || other.balance == balance) &&
             const DeepCollectionEquality()
                 .equals(other._transfers, _transfers) &&
-            const DeepCollectionEquality()
-                .equals(other.lastHistoryCheck, lastHistoryCheck));
+            (identical(other.lastHistoryCheck, lastHistoryCheck) ||
+                other.lastHistoryCheck == lastHistoryCheck));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(height),
-      const DeepCollectionEquality().hash(balance),
-      const DeepCollectionEquality().hash(_transfers),
-      const DeepCollectionEquality().hash(lastHistoryCheck));
+  int get hashCode => Object.hash(runtimeType, address, height, balance,
+      const DeepCollectionEquality().hash(_transfers), lastHistoryCheck);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WalletCopyWith<_$_Wallet> get copyWith =>
       __$$_WalletCopyWithImpl<_$_Wallet>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WalletToJson(this);
+    return _$$_WalletToJson(
+      this,
+    );
   }
 }
 
@@ -225,15 +227,15 @@ abstract class _Wallet implements Wallet {
   factory _Wallet.fromJson(Map<String, dynamic> json) = _$_Wallet.fromJson;
 
   @override
-  String get address => throw _privateConstructorUsedError;
+  String get address;
   @override
-  int get height => throw _privateConstructorUsedError;
+  int get height;
   @override
-  int get balance => throw _privateConstructorUsedError;
+  int get balance;
   @override
-  List<Entry> get transfers => throw _privateConstructorUsedError;
+  List<Entry> get transfers;
   @override
-  int get lastHistoryCheck => throw _privateConstructorUsedError;
+  int get lastHistoryCheck;
   @override
   @JsonKey(ignore: true)
   _$$_WalletCopyWith<_$_Wallet> get copyWith =>

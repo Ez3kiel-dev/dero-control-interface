@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class TransferResultNotifier extends StateNotifier<TransferResult> {
-  final Reader read;
+  final Ref ref;
 
-  TransferResultNotifier(this.read) : super(const TransferResult());
+  TransferResultNotifier(this.ref) : super(const TransferResult());
 
   Future<void> sendDero(Transfer transfer) async {
     state = state.copyWith(transferState: TransferState.submitted);
@@ -40,7 +40,7 @@ class TransferResultNotifier extends StateNotifier<TransferResult> {
               'ringsize': transfer.ringsize,
             };
 
-      var result = await read(walletRpcClientProvider).transfer(msg);
+      var result = await ref.read(walletRpcClientProvider).transfer(msg);
       debugPrint(result.toString());
       if (result['txid'].toString().isNotEmpty) {
         state = TransferResult(
@@ -81,7 +81,7 @@ class TransferResultNotifier extends StateNotifier<TransferResult> {
         'ringsize': 2,
       };
 
-      var result = await read(walletRpcClientProvider).scInvoke(msg);
+      var result = await ref.read(walletRpcClientProvider).scInvoke(msg);
 
       if (result['txid'].toString().isNotEmpty) {
         state = TransferResult(
@@ -103,5 +103,5 @@ class TransferResultNotifier extends StateNotifier<TransferResult> {
 final transferResultProvider =
     StateNotifierProvider.autoDispose<TransferResultNotifier, TransferResult>(
         (ref) {
-  return TransferResultNotifier(ref.read);
+  return TransferResultNotifier(ref);
 });

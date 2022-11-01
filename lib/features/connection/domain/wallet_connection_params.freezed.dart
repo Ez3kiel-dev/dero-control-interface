@@ -30,44 +30,48 @@ mixin _$WalletConnectionParams {
 abstract class $WalletConnectionParamsCopyWith<$Res> {
   factory $WalletConnectionParamsCopyWith(WalletConnectionParams value,
           $Res Function(WalletConnectionParams) then) =
-      _$WalletConnectionParamsCopyWithImpl<$Res>;
+      _$WalletConnectionParamsCopyWithImpl<$Res, WalletConnectionParams>;
+  @useResult
   $Res call({String sessionUuid, String address, String user, String password});
 }
 
 /// @nodoc
-class _$WalletConnectionParamsCopyWithImpl<$Res>
+class _$WalletConnectionParamsCopyWithImpl<$Res,
+        $Val extends WalletConnectionParams>
     implements $WalletConnectionParamsCopyWith<$Res> {
   _$WalletConnectionParamsCopyWithImpl(this._value, this._then);
 
-  final WalletConnectionParams _value;
   // ignore: unused_field
-  final $Res Function(WalletConnectionParams) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? sessionUuid = freezed,
-    Object? address = freezed,
-    Object? user = freezed,
-    Object? password = freezed,
+    Object? sessionUuid = null,
+    Object? address = null,
+    Object? user = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      sessionUuid: sessionUuid == freezed
+      sessionUuid: null == sessionUuid
           ? _value.sessionUuid
           : sessionUuid // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      user: user == freezed
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -79,42 +83,41 @@ abstract class _$$_MyWalletConnectionParamsCopyWith<$Res>
           $Res Function(_$_MyWalletConnectionParams) then) =
       __$$_MyWalletConnectionParamsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String sessionUuid, String address, String user, String password});
 }
 
 /// @nodoc
 class __$$_MyWalletConnectionParamsCopyWithImpl<$Res>
-    extends _$WalletConnectionParamsCopyWithImpl<$Res>
+    extends _$WalletConnectionParamsCopyWithImpl<$Res,
+        _$_MyWalletConnectionParams>
     implements _$$_MyWalletConnectionParamsCopyWith<$Res> {
   __$$_MyWalletConnectionParamsCopyWithImpl(_$_MyWalletConnectionParams _value,
       $Res Function(_$_MyWalletConnectionParams) _then)
-      : super(_value, (v) => _then(v as _$_MyWalletConnectionParams));
+      : super(_value, _then);
 
-  @override
-  _$_MyWalletConnectionParams get _value =>
-      super._value as _$_MyWalletConnectionParams;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? sessionUuid = freezed,
-    Object? address = freezed,
-    Object? user = freezed,
-    Object? password = freezed,
+    Object? sessionUuid = null,
+    Object? address = null,
+    Object? user = null,
+    Object? password = null,
   }) {
     return _then(_$_MyWalletConnectionParams(
-      sessionUuid: sessionUuid == freezed
+      sessionUuid: null == sessionUuid
           ? _value.sessionUuid
           : sessionUuid // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      user: user == freezed
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as String,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
@@ -154,23 +157,21 @@ class _$_MyWalletConnectionParams implements _MyWalletConnectionParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MyWalletConnectionParams &&
-            const DeepCollectionEquality()
-                .equals(other.sessionUuid, sessionUuid) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.user, user) &&
-            const DeepCollectionEquality().equals(other.password, password));
+            (identical(other.sessionUuid, sessionUuid) ||
+                other.sessionUuid == sessionUuid) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(sessionUuid),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(user),
-      const DeepCollectionEquality().hash(password));
+  int get hashCode =>
+      Object.hash(runtimeType, sessionUuid, address, user, password);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MyWalletConnectionParamsCopyWith<_$_MyWalletConnectionParams>
       get copyWith => __$$_MyWalletConnectionParamsCopyWithImpl<
           _$_MyWalletConnectionParams>(this, _$identity);
@@ -184,13 +185,13 @@ abstract class _MyWalletConnectionParams implements WalletConnectionParams {
       final String password}) = _$_MyWalletConnectionParams;
 
   @override
-  String get sessionUuid => throw _privateConstructorUsedError;
+  String get sessionUuid;
   @override
-  String get address => throw _privateConstructorUsedError;
+  String get address;
   @override
-  String get user => throw _privateConstructorUsedError;
+  String get user;
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
   @JsonKey(ignore: true)
   _$$_MyWalletConnectionParamsCopyWith<_$_MyWalletConnectionParams>
