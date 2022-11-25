@@ -18,8 +18,8 @@ class _NetworkWidgetState extends ConsumerState<NetworkWidget> {
   final PageController _pageController = PageController();
   DerodInfo _previousValue = DerodInfo(
     testnet: false,
-    height: '0',
-    stableHeight: '0',
+    rawHeight: 0,
+    rawStableHeight: 0,
     rawHashrate: 0,
     rawAverageBlockTime50: 0,
     rawTotalSupply: 0,

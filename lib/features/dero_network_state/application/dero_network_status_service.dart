@@ -13,8 +13,8 @@ final derodInfoProvider = FutureProvider.autoDispose<DerodInfo>((ref) async {
   var info = await ref.watch(derodRpcClientProvider).getInfo();
   return DerodInfo(
     testnet: info['testnet'],
-    height: info['height'].toString(),
-    stableHeight: info['stableheight'].toString(),
+    rawHeight: info['height'],
+    rawStableHeight: info['stableheight'],
     rawHashrate: info['difficulty'],
     rawAverageBlockTime50: info['averageblocktime50'],
     rawTotalSupply: info['total_supply'],

@@ -28,8 +28,8 @@ class DerodInfo {
 
   DerodInfo(
       {required testnet,
-      required this.height,
-      required this.stableHeight,
+      required rawHeight,
+      required rawStableHeight,
       required rawHashrate,
       required rawAverageBlockTime50,
       required rawTotalSupply,
@@ -45,7 +45,9 @@ class DerodInfo {
       required rawHashrate1hr,
       required rawHashrate1d,
       required rawHashrate7d})
-      : network = testnet ? 'Testnet' : 'Mainnet',
+      : height = NumberFormat().format(rawHeight),
+        stableHeight = NumberFormat().format(rawStableHeight),
+        network = testnet ? 'Testnet' : 'Mainnet',
         hashrate = NumberFormat().format(rawHashrate),
         averageBlockTime50 =
             NumberFormat('##.0#').format(rawAverageBlockTime50),

@@ -13,6 +13,7 @@ _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
       blockHash: json['blockHash'] as String?,
       ringSize: json['ringSize'] as int?,
       signer: json['signer'] as String?,
+      ring: json['ring'] as List<dynamic>?,
     );
 
 Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
       'blockHash': instance.blockHash,
       'ringSize': instance.ringSize,
       'signer': instance.signer,
+      'ring': instance.ring,
     };

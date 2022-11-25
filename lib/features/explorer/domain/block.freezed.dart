@@ -21,14 +21,25 @@ Block _$BlockFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Block {
   dynamic get height => throw _privateConstructorUsedError;
+
   dynamic get hash => throw _privateConstructorUsedError;
+
   dynamic get difficulty => throw _privateConstructorUsedError;
+
   dynamic get txcount => throw _privateConstructorUsedError;
+
   dynamic get topoheight => throw _privateConstructorUsedError;
+
   dynamic get reward => throw _privateConstructorUsedError;
+
+  dynamic get miners => throw _privateConstructorUsedError;
+
+  dynamic get tips => throw _privateConstructorUsedError;
+
   dynamic get timestamp => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $BlockCopyWith<Block> get copyWith => throw _privateConstructorUsedError;
 }
@@ -45,6 +56,8 @@ abstract class $BlockCopyWith<$Res> {
       dynamic txcount,
       dynamic topoheight,
       dynamic reward,
+      dynamic miners,
+      dynamic tips,
       dynamic timestamp});
 }
 
@@ -67,6 +80,8 @@ class _$BlockCopyWithImpl<$Res, $Val extends Block>
     Object? txcount = null,
     Object? topoheight = null,
     Object? reward = null,
+    Object? miners = null,
+    Object? tips = null,
     Object? timestamp = null,
   }) {
     return _then(_value.copyWith(
@@ -94,6 +109,14 @@ class _$BlockCopyWithImpl<$Res, $Val extends Block>
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      miners: null == miners
+          ? _value.miners
+          : miners // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      tips: null == tips
+          ? _value.tips
+          : tips // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       timestamp: null == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
@@ -115,6 +138,8 @@ abstract class _$$_BlockCopyWith<$Res> implements $BlockCopyWith<$Res> {
       dynamic txcount,
       dynamic topoheight,
       dynamic reward,
+      dynamic miners,
+      dynamic tips,
       dynamic timestamp});
 }
 
@@ -133,6 +158,8 @@ class __$$_BlockCopyWithImpl<$Res> extends _$BlockCopyWithImpl<$Res, _$_Block>
     Object? txcount = null,
     Object? topoheight = null,
     Object? reward = null,
+    Object? miners = null,
+    Object? tips = null,
     Object? timestamp = null,
   }) {
     return _then(_$_Block(
@@ -160,6 +187,14 @@ class __$$_BlockCopyWithImpl<$Res> extends _$BlockCopyWithImpl<$Res, _$_Block>
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      miners: null == miners
+          ? _value.miners
+          : miners // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      tips: null == tips
+          ? _value.tips
+          : tips // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       timestamp: null == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
@@ -178,6 +213,8 @@ class _$_Block implements _Block {
       required this.txcount,
       required this.topoheight,
       required this.reward,
+      required this.miners,
+      required this.tips,
       required this.timestamp});
 
   factory _$_Block.fromJson(Map<String, dynamic> json) =>
@@ -196,11 +233,15 @@ class _$_Block implements _Block {
   @override
   final dynamic reward;
   @override
+  final dynamic miners;
+  @override
+  final dynamic tips;
+  @override
   final dynamic timestamp;
 
   @override
   String toString() {
-    return 'Block(height: $height, hash: $hash, difficulty: $difficulty, txcount: $txcount, topoheight: $topoheight, reward: $reward, timestamp: $timestamp)';
+    return 'Block(height: $height, hash: $hash, difficulty: $difficulty, txcount: $txcount, topoheight: $topoheight, reward: $reward, miners: $miners, tips: $tips, timestamp: $timestamp)';
   }
 
   @override
@@ -216,6 +257,8 @@ class _$_Block implements _Block {
             const DeepCollectionEquality()
                 .equals(other.topoheight, topoheight) &&
             const DeepCollectionEquality().equals(other.reward, reward) &&
+            const DeepCollectionEquality().equals(other.miners, miners) &&
+            const DeepCollectionEquality().equals(other.tips, tips) &&
             const DeepCollectionEquality().equals(other.timestamp, timestamp));
   }
 
@@ -229,6 +272,8 @@ class _$_Block implements _Block {
       const DeepCollectionEquality().hash(txcount),
       const DeepCollectionEquality().hash(topoheight),
       const DeepCollectionEquality().hash(reward),
+      const DeepCollectionEquality().hash(miners),
+      const DeepCollectionEquality().hash(tips),
       const DeepCollectionEquality().hash(timestamp));
 
   @JsonKey(ignore: true)
@@ -253,24 +298,39 @@ abstract class _Block implements Block {
       required final dynamic txcount,
       required final dynamic topoheight,
       required final dynamic reward,
+      required final dynamic miners,
+      required final dynamic tips,
       required final dynamic timestamp}) = _$_Block;
 
   factory _Block.fromJson(Map<String, dynamic> json) = _$_Block.fromJson;
 
   @override
   dynamic get height;
+
   @override
   dynamic get hash;
+
   @override
   dynamic get difficulty;
+
   @override
   dynamic get txcount;
+
   @override
   dynamic get topoheight;
+
   @override
   dynamic get reward;
+
+  @override
+  dynamic get miners;
+
+  @override
+  dynamic get tips;
+
   @override
   dynamic get timestamp;
+
   @override
   @JsonKey(ignore: true)
   _$$_BlockCopyWith<_$_Block> get copyWith =>

@@ -182,6 +182,86 @@ class BlockDetails extends StatelessWidget {
             // dense: true,
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: ListTile(
+            title: SizedBox(
+              width: double.maxFinite,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Tips',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: AppColors.green),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SelectionArea(
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: (block.tips as List).length,
+                        itemBuilder: (context, index) {
+                          final item = block.tips[index];
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(item,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(color: AppColors.text)),
+                          );
+                        }),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: ListTile(
+            title: SizedBox(
+              width: double.maxFinite,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Miners',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: AppColors.green),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SelectionArea(
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: (block.miners as List).length,
+                        itemBuilder: (context, index) {
+                          final item = block.miners[index];
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(item,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(color: AppColors.text)),
+                          );
+                        }),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }

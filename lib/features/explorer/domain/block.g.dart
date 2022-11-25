@@ -13,15 +13,20 @@ _$_Block _$$_BlockFromJson(Map<String, dynamic> json) => _$_Block(
       txcount: json['txcount'],
       topoheight: json['topoheight'],
       reward: json['reward'],
+      miners: json['miners'],
+      tips: json['tips'],
       timestamp: json['timestamp'],
     );
 
-Map<String, dynamic> _$$_BlockToJson(_$_Block instance) => <String, dynamic>{
+Map<String, dynamic> _$$_BlockToJson(_$_Block instance) =>
+    <String, dynamic>{
       'height': instance.height,
       'hash': instance.hash,
       'difficulty': instance.difficulty,
       'txcount': instance.txcount,
       'topoheight': instance.topoheight,
       'reward': instance.reward,
+      'miners': instance.miners,
+      'tips': instance.tips,
       'timestamp': instance.timestamp,
     };

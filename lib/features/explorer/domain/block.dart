@@ -13,6 +13,8 @@ class Block with _$Block {
       required dynamic txcount,
       required dynamic topoheight,
       required dynamic reward,
+      required dynamic miners,
+      required dynamic tips,
       required dynamic timestamp}) = _Block;
 
   factory Block.fromJson(Map<String, dynamic> json) => _$BlockFromJson(json);

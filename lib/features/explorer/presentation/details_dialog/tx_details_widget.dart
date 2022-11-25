@@ -150,6 +150,46 @@ class TransactionDetails extends StatelessWidget {
             ),
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: ListTile(
+            title: SizedBox(
+              width: double.maxFinite,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Ring',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: AppColors.green),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SelectionArea(
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: (transaction.ring as List).length,
+                        itemBuilder: (context, index) {
+                          final item = transaction.ring?[index] ?? '';
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(item,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(color: AppColors.text)),
+                          );
+                        }),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }

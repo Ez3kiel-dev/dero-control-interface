@@ -26,6 +26,8 @@ mixin _$Transaction {
   int? get ringSize => throw _privateConstructorUsedError;
   String? get signer => throw _privateConstructorUsedError;
 
+  List<dynamic>? get ring => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TransactionCopyWith<Transaction> get copyWith =>
@@ -37,13 +39,15 @@ abstract class $TransactionCopyWith<$Res> {
   factory $TransactionCopyWith(
           Transaction value, $Res Function(Transaction) then) =
       _$TransactionCopyWithImpl<$Res, Transaction>;
+
   @useResult
   $Res call(
       {String hash,
       int? height,
       String? blockHash,
       int? ringSize,
-      String? signer});
+      String? signer,
+      List<dynamic>? ring});
 }
 
 /// @nodoc
@@ -64,6 +68,7 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
     Object? blockHash = freezed,
     Object? ringSize = freezed,
     Object? signer = freezed,
+    Object? ring = freezed,
   }) {
     return _then(_value.copyWith(
       hash: null == hash
@@ -86,6 +91,10 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
           ? _value.signer
           : signer // ignore: cast_nullable_to_non_nullable
               as String?,
+      ring: freezed == ring
+          ? _value.ring
+          : ring // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
     ) as $Val);
   }
 }
@@ -96,6 +105,7 @@ abstract class _$$_TransactionCopyWith<$Res>
   factory _$$_TransactionCopyWith(
           _$_Transaction value, $Res Function(_$_Transaction) then) =
       __$$_TransactionCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -103,7 +113,8 @@ abstract class _$$_TransactionCopyWith<$Res>
       int? height,
       String? blockHash,
       int? ringSize,
-      String? signer});
+      String? signer,
+      List<dynamic>? ring});
 }
 
 /// @nodoc
@@ -122,6 +133,7 @@ class __$$_TransactionCopyWithImpl<$Res>
     Object? blockHash = freezed,
     Object? ringSize = freezed,
     Object? signer = freezed,
+    Object? ring = freezed,
   }) {
     return _then(_$_Transaction(
       hash: null == hash
@@ -144,6 +156,10 @@ class __$$_TransactionCopyWithImpl<$Res>
           ? _value.signer
           : signer // ignore: cast_nullable_to_non_nullable
               as String?,
+      ring: freezed == ring
+          ? _value._ring
+          : ring // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
     ));
   }
 }
@@ -156,7 +172,9 @@ class _$_Transaction implements _Transaction {
       this.height,
       this.blockHash,
       this.ringSize,
-      this.signer});
+      this.signer,
+      final List<dynamic>? ring})
+      : _ring = ring;
 
   factory _$_Transaction.fromJson(Map<String, dynamic> json) =>
       _$$_TransactionFromJson(json);
@@ -171,10 +189,19 @@ class _$_Transaction implements _Transaction {
   final int? ringSize;
   @override
   final String? signer;
+  final List<dynamic>? _ring;
+
+  @override
+  List<dynamic>? get ring {
+    final value = _ring;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'Transaction(hash: $hash, height: $height, blockHash: $blockHash, ringSize: $ringSize, signer: $signer)';
+    return 'Transaction(hash: $hash, height: $height, blockHash: $blockHash, ringSize: $ringSize, signer: $signer, ring: $ring)';
   }
 
   @override
@@ -188,13 +215,14 @@ class _$_Transaction implements _Transaction {
                 other.blockHash == blockHash) &&
             (identical(other.ringSize, ringSize) ||
                 other.ringSize == ringSize) &&
-            (identical(other.signer, signer) || other.signer == signer));
+            (identical(other.signer, signer) || other.signer == signer) &&
+            const DeepCollectionEquality().equals(other._ring, _ring));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, hash, height, blockHash, ringSize, signer);
+  int get hashCode => Object.hash(runtimeType, hash, height, blockHash,
+      ringSize, signer, const DeepCollectionEquality().hash(_ring));
 
   @JsonKey(ignore: true)
   @override
@@ -216,21 +244,30 @@ abstract class _Transaction implements Transaction {
       final int? height,
       final String? blockHash,
       final int? ringSize,
-      final String? signer}) = _$_Transaction;
+      final String? signer,
+      final List<dynamic>? ring}) = _$_Transaction;
 
   factory _Transaction.fromJson(Map<String, dynamic> json) =
       _$_Transaction.fromJson;
 
   @override
   String get hash;
+
   @override
   int? get height;
+
   @override
   String? get blockHash;
+
   @override
   int? get ringSize;
+
   @override
   String? get signer;
+
+  @override
+  List<dynamic>? get ring;
+
   @override
   @JsonKey(ignore: true)
   _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
