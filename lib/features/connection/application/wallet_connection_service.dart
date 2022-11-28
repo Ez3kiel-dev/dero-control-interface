@@ -45,5 +45,5 @@ final walletConnectionErrorProvider =
 });
 
 final initWalletClientProvider = Provider.autoDispose<void>((ref) {
-  ref.refresh(walletRpcClientProvider);
+  ref.invalidate(walletRpcClientProvider);
 });

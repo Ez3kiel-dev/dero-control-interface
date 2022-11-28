@@ -356,8 +356,10 @@ class _WalletState extends State<WalletWidget> {
                                       return OutlinedButton(
                                           style: kRegularButtonStyle,
                                           onPressed: () {
-                                            ref.refresh(futureBalanceProvider);
-                                            ref.refresh(estimatedFeesProvider);
+                                            ref.invalidate(
+                                                futureBalanceProvider);
+                                            ref.invalidate(
+                                                estimatedFeesProvider);
 
                                             setState(() {
                                               _showTransfer = false;
@@ -414,7 +416,7 @@ class _WalletState extends State<WalletWidget> {
                             },
                             error: (err, stack) async {
                               debugPrint('WalletWidget Error: $err');
-                              ref.refresh(initWalletClientProvider);
+                              ref.invalidate(initWalletClientProvider);
                             },
                             loading: () {});
                         return Column(

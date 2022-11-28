@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-main() {
+void main() {
   // runApp( ProviderScope(observers: [DebugLogger()],child: const MyApp()));
   runApp(const ProviderScope(child: MyApp()));
 }
