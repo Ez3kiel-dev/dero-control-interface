@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'block.dart';
 
@@ -21,25 +21,16 @@ Block _$BlockFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Block {
   dynamic get height => throw _privateConstructorUsedError;
-
   dynamic get hash => throw _privateConstructorUsedError;
-
   dynamic get difficulty => throw _privateConstructorUsedError;
-
   dynamic get txcount => throw _privateConstructorUsedError;
-
   dynamic get topoheight => throw _privateConstructorUsedError;
-
   dynamic get reward => throw _privateConstructorUsedError;
-
   dynamic get miners => throw _privateConstructorUsedError;
-
   dynamic get tips => throw _privateConstructorUsedError;
-
   dynamic get timestamp => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $BlockCopyWith<Block> get copyWith => throw _privateConstructorUsedError;
 }
@@ -74,50 +65,50 @@ class _$BlockCopyWithImpl<$Res, $Val extends Block>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? height = null,
-    Object? hash = null,
-    Object? difficulty = null,
-    Object? txcount = null,
-    Object? topoheight = null,
-    Object? reward = null,
-    Object? miners = null,
-    Object? tips = null,
-    Object? timestamp = null,
+    Object? height = freezed,
+    Object? hash = freezed,
+    Object? difficulty = freezed,
+    Object? txcount = freezed,
+    Object? topoheight = freezed,
+    Object? reward = freezed,
+    Object? miners = freezed,
+    Object? tips = freezed,
+    Object? timestamp = freezed,
   }) {
     return _then(_value.copyWith(
-      height: null == height
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hash: null == hash
+      hash: freezed == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      difficulty: null == difficulty
+      difficulty: freezed == difficulty
           ? _value.difficulty
           : difficulty // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      txcount: null == txcount
+      txcount: freezed == txcount
           ? _value.txcount
           : txcount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      topoheight: null == topoheight
+      topoheight: freezed == topoheight
           ? _value.topoheight
           : topoheight // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      reward: null == reward
+      reward: freezed == reward
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      miners: null == miners
+      miners: freezed == miners
           ? _value.miners
           : miners // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      tips: null == tips
+      tips: freezed == tips
           ? _value.tips
           : tips // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      timestamp: null == timestamp
+      timestamp: freezed == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -152,50 +143,50 @@ class __$$_BlockCopyWithImpl<$Res> extends _$BlockCopyWithImpl<$Res, _$_Block>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? height = null,
-    Object? hash = null,
-    Object? difficulty = null,
-    Object? txcount = null,
-    Object? topoheight = null,
-    Object? reward = null,
-    Object? miners = null,
-    Object? tips = null,
-    Object? timestamp = null,
+    Object? height = freezed,
+    Object? hash = freezed,
+    Object? difficulty = freezed,
+    Object? txcount = freezed,
+    Object? topoheight = freezed,
+    Object? reward = freezed,
+    Object? miners = freezed,
+    Object? tips = freezed,
+    Object? timestamp = freezed,
   }) {
     return _then(_$_Block(
-      height: null == height
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hash: null == hash
+      hash: freezed == hash
           ? _value.hash
           : hash // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      difficulty: null == difficulty
+      difficulty: freezed == difficulty
           ? _value.difficulty
           : difficulty // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      txcount: null == txcount
+      txcount: freezed == txcount
           ? _value.txcount
           : txcount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      topoheight: null == topoheight
+      topoheight: freezed == topoheight
           ? _value.topoheight
           : topoheight // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      reward: null == reward
+      reward: freezed == reward
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      miners: null == miners
+      miners: freezed == miners
           ? _value.miners
           : miners // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      tips: null == tips
+      tips: freezed == tips
           ? _value.tips
           : tips // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      timestamp: null == timestamp
+      timestamp: freezed == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -306,31 +297,22 @@ abstract class _Block implements Block {
 
   @override
   dynamic get height;
-
   @override
   dynamic get hash;
-
   @override
   dynamic get difficulty;
-
   @override
   dynamic get txcount;
-
   @override
   dynamic get topoheight;
-
   @override
   dynamic get reward;
-
   @override
   dynamic get miners;
-
   @override
   dynamic get tips;
-
   @override
   dynamic get timestamp;
-
   @override
   @JsonKey(ignore: true)
   _$$_BlockCopyWith<_$_Block> get copyWith =>

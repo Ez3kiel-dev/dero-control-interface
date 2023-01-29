@@ -45,7 +45,7 @@ final derodStreamProvider = StreamProvider.autoDispose<dynamic>((ref) {
   var multiStream = socket.stream.asBroadcastStream();
 
   final stream = multiStream.listen((event) {}, onDone: () async {
-    ref.container.refresh(derodTickStreamStateProvider);
+    ref.container.invalidate(derodTickStreamStateProvider);
   }, onError: (error) {
     debugPrint('OnError derodStream : $error');
   });

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'wallet_entry.dart';
 
@@ -95,9 +95,9 @@ class _$EntryCopyWithImpl<$Res, $Val extends Entry>
     Object? fees = null,
     Object? proof = null,
     Object? time = null,
-    Object? data = null,
-    Object? payload = null,
-    Object? payload_rpc = null,
+    Object? data = freezed,
+    Object? payload = freezed,
+    Object? payload_rpc = freezed,
     Object? sender = null,
     Object? dstport = null,
     Object? srcport = null,
@@ -151,15 +151,15 @@ class _$EntryCopyWithImpl<$Res, $Val extends Entry>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as String,
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      payload: null == payload
+      payload: freezed == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      payload_rpc: null == payload_rpc
+      payload_rpc: freezed == payload_rpc
           ? _value.payload_rpc
           : payload_rpc // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -227,9 +227,9 @@ class __$$_EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res, _$_Entry>
     Object? fees = null,
     Object? proof = null,
     Object? time = null,
-    Object? data = null,
-    Object? payload = null,
-    Object? payload_rpc = null,
+    Object? data = freezed,
+    Object? payload = freezed,
+    Object? payload_rpc = freezed,
     Object? sender = null,
     Object? dstport = null,
     Object? srcport = null,
@@ -283,15 +283,15 @@ class __$$_EntryCopyWithImpl<$Res> extends _$EntryCopyWithImpl<$Res, _$_Entry>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as String,
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      payload: null == payload
+      payload: freezed == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      payload_rpc: null == payload_rpc
+      payload_rpc: freezed == payload_rpc
           ? _value.payload_rpc
           : payload_rpc // ignore: cast_nullable_to_non_nullable
               as dynamic,

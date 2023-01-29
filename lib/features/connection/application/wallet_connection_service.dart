@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final walletConnectionStateProvider = StateProvider<bool>((ref) => false);
 
-final walletConnectProvider = FutureProvider<bool>((ref) async {
+final walletConnectProvider = FutureProvider.autoDispose<bool>((ref) async {
   String rpcPingResponse = '';
   try {
     rpcPingResponse = await ref.watch(walletRpcClientProvider).ping();

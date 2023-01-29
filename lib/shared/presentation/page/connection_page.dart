@@ -64,8 +64,7 @@ class ConnectionPage extends StatelessWidget {
                     if (derodConnectionError) {
                       return const Padding(
                         padding: EdgeInsets.all(16.0),
-                        child:
-                        Text('The connection with derod has failed ...'),
+                        child: Text('The connection with derod has failed ...'),
                       );
                     }
                     if (walletConnectionError) {

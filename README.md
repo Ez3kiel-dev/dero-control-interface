@@ -60,6 +60,7 @@ flutter run --release -d linux
 
 If you like my work and want to support me, donations are greatly appreciated :)
 
-Send any amount to `dero1qy5a6wk2r9mq3e5kagku4kdrhq407qhvht8qke5sxpm9u8lqmph3vqgl3nz8t` or use my named address `Ez3kiel`.
+Send any amount to `dero1qy5a6wk2r9mq3e5kagku4kdrhq407qhvht8qke5sxpm9u8lqmph3vqgl3nz8t` or use my
+named address `Ez3kiel`.
 
-Thanks in advance!
+Thanks!

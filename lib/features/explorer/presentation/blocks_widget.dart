@@ -93,7 +93,8 @@ class _BlocksState extends ConsumerState<Blocks>
                         sizeFactor: animation,
                         child: InkWell(
                           onTap: () async {
-                            await _showBlockDetails(context, _blocks[index].hash);
+                            await _showBlockDetails(
+                                context, _blocks[index].hash);
                           },
                           hoverColor: AppColors.green,
                           customBorder: RoundedRectangleBorder(

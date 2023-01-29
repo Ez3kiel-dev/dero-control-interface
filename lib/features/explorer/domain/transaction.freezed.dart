@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'transaction.dart';
 
@@ -25,7 +25,6 @@ mixin _$Transaction {
   String? get blockHash => throw _privateConstructorUsedError;
   int? get ringSize => throw _privateConstructorUsedError;
   String? get signer => throw _privateConstructorUsedError;
-
   List<dynamic>? get ring => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +38,6 @@ abstract class $TransactionCopyWith<$Res> {
   factory $TransactionCopyWith(
           Transaction value, $Res Function(Transaction) then) =
       _$TransactionCopyWithImpl<$Res, Transaction>;
-
   @useResult
   $Res call(
       {String hash,
@@ -105,7 +103,6 @@ abstract class _$$_TransactionCopyWith<$Res>
   factory _$$_TransactionCopyWith(
           _$_Transaction value, $Res Function(_$_Transaction) then) =
       __$$_TransactionCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -190,11 +187,11 @@ class _$_Transaction implements _Transaction {
   @override
   final String? signer;
   final List<dynamic>? _ring;
-
   @override
   List<dynamic>? get ring {
     final value = _ring;
     if (value == null) return null;
+    if (_ring is EqualUnmodifiableListView) return _ring;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -252,22 +249,16 @@ abstract class _Transaction implements Transaction {
 
   @override
   String get hash;
-
   @override
   int? get height;
-
   @override
   String? get blockHash;
-
   @override
   int? get ringSize;
-
   @override
   String? get signer;
-
   @override
   List<dynamic>? get ring;
-
   @override
   @JsonKey(ignore: true)
   _$$_TransactionCopyWith<_$_Transaction> get copyWith =>

@@ -65,7 +65,7 @@ final getBlockByHeightProvider =
 });
 
 final getNameToAddressProvider =
-    FutureProvider.family<Account, String>((ref, name) async {
+    FutureProvider.family.autoDispose<Account, String>((ref, name) async {
   Map msg = {'name': name};
   try {
     var result = await ref.watch(derodRpcClientProvider).getNameToAddress(msg)

@@ -4,7 +4,7 @@ description: Interface to interact with DERO network (derod and wallet) via RPC
 
 publish_to: 'none'
 
-version: 1.1.4+3
+version: 1.1.5+4
 
 environment:
   sdk: ">=2.17.1 <3.0.0"
@@ -17,14 +17,14 @@ dependencies:
   web_socket_channel: ^2.2.0
   flutter_form_builder: ^7.7.0
   form_builder_validators: ^8.4.0
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.1
   flutter_riverpod: ^2.1.3
   intl: ^0.17.0
-  url_launcher: ^6.1.7
+  url_launcher: ^6.1.8
   font_awesome_flutter: ^10.3.0
-  go_router: ^6.0.0
-  path_provider: ^2.0.11
-  json_serializable: ^6.5.4
+  go_router: ^6.0.1
+  path_provider: ^2.0.12
+  json_serializable: ^6.6.0
   freezed: ^2.3.2
   freezed_annotation: ^2.2.0
   uuid: ^3.0.7

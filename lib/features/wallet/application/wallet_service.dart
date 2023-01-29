@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:dero_control_interface/features/connection/application/wallet_connection_service.dart';
 import 'package:dero_control_interface/features/wallet/domain/wallet.dart';
 import 'package:dero_control_interface/features/wallet/domain/wallet_entry.dart';
 import 'package:dero_control_interface/shared/data/wallet_repository.dart';
@@ -50,16 +51,20 @@ final tickStreamProvider = StreamProvider.autoDispose<dynamic>((ref) {
 final walletTickUpdateProvider = FutureProvider.autoDispose<void>((ref) async {
   ref.watch(tickStreamProvider);
 
-  if (ref.watch(walletProvider).address == '') {
-    var result = await ref.watch(walletRpcClientProvider).getAddress();
-    ref.watch(walletProvider.notifier).setAddress(result['address']);
+  try {
+    if (ref.watch(walletProvider).address == '') {
+      var result = await ref.watch(walletRpcClientProvider).getAddress();
+      ref.watch(walletProvider.notifier).setAddress(result['address']);
+    }
+
+    var result = await ref.watch(walletRpcClientProvider).getHeight();
+    ref.watch(walletProvider.notifier).setHeight(result['height']);
+
+    result = await ref.watch(walletRpcClientProvider).getBalance();
+    ref.watch(walletProvider.notifier).setBalance(result['balance']);
+  } catch (e) {
+    ref.watch(walletConnectionStateProvider.notifier).state = false;
   }
-
-  var result = await ref.watch(walletRpcClientProvider).getHeight();
-  ref.watch(walletProvider.notifier).setHeight(result['height']);
-
-  result = await ref.watch(walletRpcClientProvider).getBalance();
-  ref.watch(walletProvider.notifier).setBalance(result['balance']);
 });
 
 final walletGetTransfersProvider =

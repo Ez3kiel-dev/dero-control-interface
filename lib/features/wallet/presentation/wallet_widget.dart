@@ -331,7 +331,7 @@ class _WalletState extends State<WalletWidget> {
                                       style: textStyle,
                                       validator: FormBuilderValidators.compose([
                                         // FormBuilderValidators.maxLength(128),
-                                        // TODO : 144 bytes tx max length ?
+                                        // TODO: 144 bytes tx max length ?
                                         (data) {
                                           if (data == null) return null;
                                           if (utf8.encode(data).length > 138) {

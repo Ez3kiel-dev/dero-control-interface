@@ -14,6 +14,8 @@ class LogoutNotifier extends StateNotifier<void> {
   void logout() {
     ref.read(derodTickStreamStateProvider.notifier).state =
         DerodTickStreamState.disabled;
+    ref.invalidate(derodRpcClientProvider);
     ref.read(walletConnectionStateProvider.notifier).state = false;
+    ref.invalidate(initWalletClientProvider);
   }
 }
