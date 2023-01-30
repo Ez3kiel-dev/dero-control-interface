@@ -7,6 +7,7 @@ import 'package:dero_control_interface/features/menu/presentation/menu_button.da
 import 'package:dero_control_interface/features/wallet/presentation/wallet_widget.dart';
 import 'package:dero_control_interface/shared/presentation/components/box_decoration.dart';
 import 'package:dero_control_interface/shared/presentation/constants/app_resources.dart';
+import 'package:dero_control_interface/shared/presentation/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_zoom_drawer/config.dart';
@@ -21,8 +22,8 @@ class Hub extends StatelessWidget {
   Widget build(BuildContext context) {
     return ZoomDrawer(
         controller: _drawerController,
+        menuBackgroundColor: AppColors.background,
         borderRadius: 24.0,
-        showShadow: false,
         angle: 0.0,
         mainScreenScale: 0.1,
         slideWidth: MediaQuery.of(context).size.width * 0.15,

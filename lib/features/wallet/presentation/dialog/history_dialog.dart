@@ -156,7 +156,7 @@ class History extends StatelessWidget {
                 fit: BoxFit.scaleDown,
                 child: Text(
                   'Back',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               )),
         )

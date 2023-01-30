@@ -151,7 +151,7 @@ class _TransferSummaryState extends State<TransferSummary> {
                   fit: BoxFit.scaleDown,
                   child: Text(
                     'Back',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 )),
             Consumer(
@@ -173,7 +173,7 @@ class _TransferSummaryState extends State<TransferSummary> {
                       fit: BoxFit.scaleDown,
                       child: Text(
                         'Confirm',
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ));
               },

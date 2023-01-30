@@ -84,7 +84,7 @@ class _WalletState extends State<WalletWidget> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle? textStyle = Theme.of(context).textTheme.bodyText1;
+    TextStyle? textStyle = Theme.of(context).textTheme.bodyLarge;
     return Scaffold(
       body: Column(
         children: [

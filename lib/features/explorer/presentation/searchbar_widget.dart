@@ -120,7 +120,7 @@ class _SearchBarState extends ConsumerState<SearchBar> {
               decoration: InputDecoration(
                   hintText:
                       'block height, block hash, transaction hash, scid ...',
-                  errorStyle: Theme.of(context).textTheme.bodyText1,
+                  errorStyle: Theme.of(context).textTheme.bodyLarge,
                   enabledBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey)),
                   focusedBorder: const UnderlineInputBorder(

@@ -43,13 +43,15 @@ class _BlocksState extends ConsumerState<Blocks>
     try {
       var block = await ref.watch(getBlockProvider(blockHash).future);
 
-      await showDialog(
-          context: context,
-          builder: (context) {
-            return BlockDetails(
-              block: block,
-            );
-          });
+      if (context.mounted) {
+        await showDialog(
+            context: context,
+            builder: (context) {
+              return BlockDetails(
+                block: block,
+              );
+            });
+      }
     } catch (e) {
       debugPrint(e.toString());
     }

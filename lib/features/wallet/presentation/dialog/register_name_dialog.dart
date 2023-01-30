@@ -23,7 +23,7 @@ class _RegisterNameDialogState extends State<RegisterNameDialog> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle? textStyle = Theme.of(context).textTheme.bodyText1;
+    TextStyle? textStyle = Theme.of(context).textTheme.bodyLarge;
 
     return AlertDialog(
       elevation: 2,

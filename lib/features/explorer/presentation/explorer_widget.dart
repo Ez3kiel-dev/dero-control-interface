@@ -22,7 +22,7 @@ class Explorer extends StatelessWidget {
                 indicatorWeight: 1.2,
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorColor: AppColors.green,
-                labelStyle: Theme.of(context).textTheme.bodyText1,
+                labelStyle: Theme.of(context).textTheme.bodyLarge,
                 tabs: const [
                   Tooltip(
                     message: 'Queue with the last 100 blocks',

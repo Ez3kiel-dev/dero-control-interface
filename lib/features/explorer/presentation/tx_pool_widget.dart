@@ -21,13 +21,16 @@ class _TxPoolState extends ConsumerState<TxPool>
       BuildContext context, WidgetRef ref, String txHash) async {
     try {
       Transaction tx = await ref.watch(getTransactionProvider(txHash).future);
-      await showDialog(
-          context: context,
-          builder: (context) {
-            return TransactionDetails(
-              transaction: tx,
-            );
-          });
+
+      if (context.mounted) {
+        await showDialog(
+            context: context,
+            builder: (context) {
+              return TransactionDetails(
+                transaction: tx,
+              );
+            });
+      }
     } catch (e) {
       debugPrint(e.toString());
     }

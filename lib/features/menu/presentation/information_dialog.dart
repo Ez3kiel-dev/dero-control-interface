@@ -17,7 +17,7 @@ class Information extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle? textStyle = Theme.of(context).textTheme.bodyText1;
+    TextStyle? textStyle = Theme.of(context).textTheme.bodyLarge;
     return AlertDialog(
       elevation: 2,
       shape: const RoundedRectangleBorder(

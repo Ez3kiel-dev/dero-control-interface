@@ -30,7 +30,7 @@ class _ConnectionFormState extends ConsumerState<ConnectionForm> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle? textStyle = Theme.of(context).textTheme.bodyText1;
+    TextStyle? textStyle = Theme.of(context).textTheme.bodyLarge;
     AsyncValue<Configuration> config = ref.watch(loadConfigurationProvider);
 
     return config.when(
