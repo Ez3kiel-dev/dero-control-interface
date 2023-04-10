@@ -30,7 +30,7 @@ dependencies:
   uuid: ^3.0.7
   smooth_page_indicator: ^1.0.0+2
   flutter_zoom_drawer: ^3.0.3
-  data_table_2: ^2.3.10
+  data_table_2: ^2.4.2
   qr_flutter: ^4.0.0
 
 dev_dependencies:
